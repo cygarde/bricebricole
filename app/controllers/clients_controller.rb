@@ -20,7 +20,6 @@ before_action :set_client, only: [:show, :edit]
   end
 
   def show
-    @client = Chantier.new()
   end
 
   def edit
