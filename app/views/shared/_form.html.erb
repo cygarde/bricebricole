@@ -1,0 +1,12 @@
+<%= simple_form_for @client do |f| %>
+  <%= f.input :nom %>
+  <%= f.input :prenom %>
+  <%= f.input :telephone_1 %>
+  <%= f.input :telephone_2 %>
+  <%= f.input :email %>
+  <%= f.input :adresse %>
+  <%= f.input :categorie %>
+  <%= f.input :information %>
+  <%= f.input :fidelite %>
+  <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
+<% end %>
