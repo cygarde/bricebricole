@@ -1,1 +1,17 @@
-<h1><%= @client.nom %></h1>
+<h1>client</h1>
+
+<div class="card" style="width: 18rem;">
+
+    <% @clients.each do |client|  %>
+      <%= client.prenom  %>
+      <%= client.nom %>
+      <%= client.telephone_1 %>
+      <%= client.telephone_2 %>
+      <%= client.adresse %>
+      <%= client.email %>
+      <%= client.categorie %>
+      <%= client.information %>
+      <%= client.fidelite %>
+    <% end %>
+
+</div>

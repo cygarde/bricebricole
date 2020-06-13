@@ -42,7 +42,7 @@ private
   end
 
   def client_params
-    params.require(:client).permit(:nom, :prenom, :telephone_1, :telephone_2, :email, :adresse, :categorie, :information, :fidelite)
+    params.require(:client).permit(:nom, :prenom, :telephone_1, :telephone_2, :email, :adresse, :categorie, :information, :fidelite, :entreprise)
   end
 
 end
