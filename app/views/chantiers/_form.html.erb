@@ -1,0 +1,18 @@
+
+<div class="container col-6">
+<%= simple_form_for [@client, @chantier ]  do |f| %>
+  <%= f.input :reference %>
+  <%= f.input :nom %>
+  <%= f.input :description %>
+  <%= f.input :statut %>
+  <%= f.input :priorite %>
+  <%= f.input :date_debut %>
+  <%= f.input :date_fin_estimee %>
+  <%= f.input :date_fin %>
+  <%= f.input :adresse %>
+  <%= f.input :montant_versement %>
+  <%= f.input :avancement %>
+  <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
+<% end %>
+
+</div>
