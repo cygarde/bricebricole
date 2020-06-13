@@ -1,0 +1,12 @@
+<h1> Listes des chantiers </h1>
+<% @chantiers.each do |chantier|  %>
+<%= chantier.reference %>
+<%= chantier.nom %>
+<%= chantier.priorite %>
+<%= chantier.avancement %>
+<%= chantier.statut %>
+<%= link_to "Modifier", edit_client_chantier_path(@chantier, @client)  %>
+
+<% end %>
+
+
