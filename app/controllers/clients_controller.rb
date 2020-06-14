@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-before_action :set_client, only: [:show, :edit]
+before_action :set_client, only: [:show, :edit, :update]
 
   def index
     @clients = Client.all
@@ -26,12 +26,12 @@ before_action :set_client, only: [:show, :edit]
   end
 
   def update
-    respond_to do |format|
+#    respond_to do |format|
       if @client.update(client_params)
         redirect_to @client
       else
         render :edit
-      end
+#      end
     end
   end
 

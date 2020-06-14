@@ -1,5 +1,7 @@
-<h1>Editer</h1>
+<div class="container">
+  <h1>Editer</h1>
 
-<%= render 'form', client: @client %>
+  <%= render 'form', client: @client %>
 
-<%= link_to 'Retour', root_path %>
+  <%= link_to 'Retour', clients_path(@client) %>
+</div>

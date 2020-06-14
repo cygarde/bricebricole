@@ -1,17 +1,30 @@
-<h1>client</h1>
+<div class="container">
+  <div class="d-flex">
+    <h1 class="font-weight-bold"><%= @client.entreprise %></h1>
+      <h1><%= @client.prenom %> <%= @client.nom %> </h1>
+    </div>
 
-<div class="card" style="width: 18rem;">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
 
-    <% @clients.each do |client|  %>
-      <%= client.prenom  %>
-      <%= client.nom %>
-      <%= client.telephone_1 %>
-      <%= client.telephone_2 %>
-      <%= client.adresse %>
-      <%= client.email %>
-      <%= client.categorie %>
-      <%= client.information %>
-      <%= client.fidelite %>
-    <% end %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Téléphone Portable: <%= @client.telephone_1 %></li>
+              <li class="list-group-item">Téléphone Fixe: <%= @client.telephone_2 %></li>
+              <li class="list-group-item">Adresse: <%= @client.adresse %></li>
+              <li class="list-group-item">Email: <%= @client.email %></li>
+              <li class="list-group-item">Statut: <%= @client.categorie %></li>
+              <li class="list-group-item">Informations: <%= @client.information %></li>
+              <li class="list-group-item">Type de client: <%= @client.fidelite %></li>
+            </ul>
 
-</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%= link_to 'Retour', clients_path(@client) %>
+<%= link_to 'Modifier', edit_client_path %>
