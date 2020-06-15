@@ -12,6 +12,7 @@
   <%= f.input :adresse %>
   <%= f.input :montant_versement %>
   <%= f.input :avancement %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
 <% end %>
 

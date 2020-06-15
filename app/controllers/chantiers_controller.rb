@@ -2,6 +2,7 @@ class ChantiersController < ApplicationController
 
 before_action :set_chantier, only: [:show, :edit, :update]
 
+
   def index
     @chantiers = Chantier.all
     @client = Client.new
@@ -46,6 +47,8 @@ before_action :set_chantier, only: [:show, :edit, :update]
     end
   end
 
+
+
 private
 
   def set_chantier
@@ -53,7 +56,7 @@ private
   end
 
   def chantier_params
-    params.require(:chantier).permit(:nom, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement)
+    params.require(:chantier).permit(:nom, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement, photos: [])
   end
 
 end
