@@ -2,7 +2,12 @@ class ClientsController < ApplicationController
 before_action :set_client, only: [:show, :edit, :update]
 
   def index
-    @clients = Client.all
+    @categories = ["Particulier", "Entreprise"]
+    if params[:categorie].present?
+      @clients = Client.search_by_categorie(params[:categorie])
+    else
+      @clients = Client.all
+    end
   end
 
   def new
