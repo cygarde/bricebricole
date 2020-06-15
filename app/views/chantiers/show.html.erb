@@ -1,1 +1,7 @@
 <h1><%= @chantier.nom %></h1>
+
+<h2>Photos</h2>
+
+<% @chantier.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
