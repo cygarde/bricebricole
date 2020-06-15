@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Mes clients</h1>
 
-    <%= form_tag clients_path, method: :get do %>
-      <%= select_tag "categorie",
-      options_for_select(@categories)
-        %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+  <%= form_tag clients_path, method: :get do %>
+    <%= select_tag "categorie",
+    options_for_select(@categories)
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
   <div class="row">
     <div class="col-sm-9">

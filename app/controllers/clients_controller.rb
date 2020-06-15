@@ -3,10 +3,8 @@ before_action :set_client, only: [:show, :edit, :update]
 
   def index
     @categories = ["Particulier", "Entreprise"]
-    user_query = "#{params[:categorie]} "
-
-    if user_query != ""
-      @clients = Client.global_search(user_query)
+    if params[:categorie].present?
+      @clients = Client.search_by_categorie(params[:categorie])
     else
       @clients = Client.all
     end
