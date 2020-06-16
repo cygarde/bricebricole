@@ -21,6 +21,23 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :nom, required: true %>
+
+    <%= f.input :prenom, required: true %>
+
+    <%=f.input :nom_societe, required: true %>
+
+    <%=f.input :numero_siret, required: true %>
+
+    <%=f.input :numero_tva, required: true %>
+
+    <%=f.input :adresse %>
+
+    <%=f.input :jours_travail %>
+
+    <%= f.input :heure_debut_travail  %>
+
+    <%= f.input :heure_fin_travail %>
   </div>
 
   <div class="form-actions">
