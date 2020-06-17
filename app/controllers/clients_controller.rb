@@ -3,8 +3,10 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index
     @categories = ["Particulier", "Entreprise"]
-    if params[:categorie].present?
-      @clients = Client.search_by_categorie(params[:categorie])
+    @fidelites = ["VIP"]
+    if (params[:categorie].present? || params[:fidelite].present?)
+      query = "#{params[:categorie]} #{params[:fidelite]} #{params[:adresse]}"
+      @clients = Client.global_search(query)
     else
       @clients = Client.all
     end
@@ -25,9 +27,6 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @chantier = Chantier.new
-    @clients = Client.all
-
   end
 
   def edit
