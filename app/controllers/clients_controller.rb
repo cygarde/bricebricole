@@ -4,7 +4,7 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
   def index
     @categories = ["Particulier", "Entreprise"]
     @fidelites = ["VIP"]
-    if (params[:categorie].present? || params[:fidelite].present?)
+    if (params[:categorie].present? || params[:fidelite].present? || params[:adresse].present?)
       query = "#{params[:categorie]} #{params[:fidelite]} #{params[:adresse]}"
       @clients = Client.global_search(query)
     else
