@@ -2,6 +2,7 @@ class ChantiersController < ApplicationController
 
 before_action :set_chantier, only: [:show, :edit, :update]
 
+
   def index
     @chantiers = Chantier.all
     @client = Client.new
@@ -9,16 +10,16 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
   def new
     @chantier = Chantier.new
-    @client = Client.find(params[:client_id])
+    raise
   end
 
   def create
-    @chantier = Chantier.new(chantier_params)
+    @client = Client.find(params[:chantier][:client_id])
+          @chantier = Chantier.new(chantier_params)
     @chantier.user = current_user
-    @client = Client.find(params[:client_id])
     @chantier.client = @client
     if @chantier.save
-      redirect_to client_chantier_path(@chantier, @client)
+      redirect_to chantier_path(@chantier)
     else
       render :new
     end
@@ -28,23 +29,23 @@ before_action :set_chantier, only: [:show, :edit, :update]
   end
 
   def edit
-    @client = Client.find(params[:client_id])
+    @chantier = Chantier.find(params[:id])
 
 
   end
 
   def update
     @chantier.user = current_user
-    @client = Client.find(params[:client_id])
-    @chantier.client = @client
     respond_to do |format|
       if @chantier.update(chantier_params)
-        redirect_to client_chantier_path(@chantier, @client)
+        redirect_to chantier_path(@chantier)
       else
         render :edit
       end
     end
   end
+
+
 
 private
 
@@ -53,7 +54,7 @@ private
   end
 
   def chantier_params
-    params.require(:chantier).permit(:nom, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement)
+    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement, photos: [])
   end
 
 end

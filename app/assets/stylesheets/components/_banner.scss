@@ -1,0 +1,24 @@
+.banner {
+  background-position: right 20% bottom 50%;
+  padding: 50px 0;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  background-image: url(vis.jpg);
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 15px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
