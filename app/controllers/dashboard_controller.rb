@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-
-  def show
+  def index
+    @users = user.all
   end
 end
