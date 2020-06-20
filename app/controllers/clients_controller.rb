@@ -27,6 +27,10 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @chantier = Chantier.new
+    @chantiers = @client.chantiers
+    @clients = Client.all
+
   end
 
   def edit
