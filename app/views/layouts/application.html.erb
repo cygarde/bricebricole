@@ -14,9 +14,15 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="content">
-      <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
+    <% if current_page?(root_path) %>
+      <div class="content">
+        <%= yield %>
+      </div>
+    <% else %>
+      <div class="content">
+        <%= yield %>
+        <%= render 'shared/mbottom' %>
+      </div>
+    <% end %>
   </body>
 </html>

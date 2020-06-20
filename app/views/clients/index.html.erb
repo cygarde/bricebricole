@@ -3,7 +3,14 @@
 
   <%= form_tag clients_path, method: :get do %>
     <%= select_tag "categorie",
-    options_for_select(@categories)
+    options_for_select(@categories),
+    include_blank: true
+    %>
+    <%= select_tag "fidelite",
+    options_for_select(@fidelites),
+    include_blank: true
+    %>
+    <%= text_field_tag "adresse", nil, placeholder: "Code postal"
     %>
     <%= submit_tag "Rechercher", class: "btn btn-primary" %>
   <% end %>

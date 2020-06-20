@@ -1,3 +1,5 @@
+<div class="container">
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -21,6 +23,25 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+
+
+    <%= f.input :prenom, required: true %>
+
+    <%=f.input :nom_societe, required: true %>
+
+    <%=f.input :numero_siret, required: true %>
+
+    <%=f.input :numero_tva, required: true %>
+
+    <%=f.input :adresse %>
+
+    <%=f.input :jours_travail %>
+
+    <%= f.input :heure_debut_travail  %>
+
+    <%= f.input :heure_fin_travail %>
+
+
   </div>
 
   <div class="form-actions">
@@ -33,3 +54,6 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
+
