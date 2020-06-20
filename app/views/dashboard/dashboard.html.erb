@@ -1,16 +1,19 @@
 <div><h1>Bonjour</h1></div>
-
 <div class="container">
-<div class="card-meteo">météo</div>
+  <div class="card-meteo">météo
+    <div id="ville">Paris</div>
+    <div id="meteo"></div>
+    <img class="img-meteo" src="" alt="">
+  </div>
 </div>
 <div class="container d-flex">
   <div class="card-chantier ">
-  <div class="card-chantier-interieur">Chantier en cours</div>
-  <div class="card-chantier-interieur">Chantier à venir</div>
- </div>
+    <div class="card-chantier-interieur"><%= @chantiersencours %></div>
+    <div class="card-chantier-interieur"><%= @chantiersavenir %></div>
+  </div>
   <div class="card-tache">tâches</div>
   <div></div>
-
 </div>
 <div>Tâche du jour en exterieur</div>
-  <div>planning rdv</div>
+<div>planning rdv</div>
+<div>charge de travail</div>
