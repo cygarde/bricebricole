@@ -10,12 +10,11 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
   def new
     @chantier = Chantier.new
-    raise
   end
 
   def create
     @client = Client.find(params[:chantier][:client_id])
-          @chantier = Chantier.new(chantier_params)
+    @chantier = Chantier.new(chantier_params)
     @chantier.user = current_user
     @chantier.client = @client
     if @chantier.save
@@ -38,7 +37,7 @@ before_action :set_chantier, only: [:show, :edit, :update]
     @chantier.user = current_user
     respond_to do |format|
       if @chantier.update(chantier_params)
-        redirect_to chantier_path(@chantier)
+        redirect_to chantier_path(@chantier, @client_id)
       else
         render :edit
       end
