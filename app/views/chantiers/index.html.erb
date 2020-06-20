@@ -1,12 +1,22 @@
-<h1> Listes des chantiers </h1>
-<% @chantiers.each do |chantier|  %>
-<%= chantier.reference %>
-<%= chantier.nom %>
-<%= chantier.priorite %>
-<%= chantier.avancement %>
-<%= chantier.statut %>
-<%= link_to "Modifier", edit_chantier_path(chantier)  %>
 
-<% end %>
+    <h1> Listes des chantiers </h1>
+
+
+
+
+      <div class="card">
+          <% @chantiers.each do |chantier|  %>
+            <div>
+              Reférence: <%= chantier.reference %><
+              Nom du chantier: <%= chantier.nom %>
+              Priorité: <%= chantier.priorite %>
+              Avancement: <%= chantier.avancement %>
+              Statut: <%= chantier.statut %>
+              <%= link_to "Modifier", edit_chantier_path(chantier)  %>
+              <% end %>
+            </div>
+      </div>
+
+
 
 

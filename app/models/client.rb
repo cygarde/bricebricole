@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
   belongs_to :user
+  has_many :chantiers
 
   include PgSearch::Model
 
@@ -8,5 +9,6 @@ class Client < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
 
 end

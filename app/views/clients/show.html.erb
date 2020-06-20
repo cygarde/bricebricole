@@ -25,9 +25,64 @@
       </div>
     </div>
   </div>
-  <%= render 'chantiers/form', chantier: @chantier %>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-chantier" >Ajouter un chantier</button>
+
+
 <%= link_to 'Retour', clients_path(@client) %>
 <%= link_to 'Modifier', edit_client_path %>
 
 <%= link_to "Supprimer", client_path, method: :delete, class:"text-dark" %>
+
+
+<div class="modal fade" id="modal-chantier" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nouveau chantier</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <div class="container col-9">
+              <%= simple_form_for [ @chantier]  do |f| %>
+                <%= f.input :reference %>
+                <%= f.input :client_id, collection: @clients %>
+                <%= f.input :nom %>
+                <%= f.input :description %>
+                <%= f.input :statut %>
+                <%= f.input :priorite %>
+                <%= f.input :date_debut %>
+                <%= f.input :date_fin_estimee %>
+                <%= f.input :date_fin %>
+                <%= f.input :adresse %>
+                <%= f.input :montant_versement %>
+                <%= f.input :avancement %>
+                <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
+
+              <% end %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <div class="card">
+          <% @chantiers.each do |chantier|  %>
+            <div>
+              Reférence: <%= chantier.reference %><
+              Nom du chantier: <%= chantier.nom %>
+              Priorité: <%= chantier.priorite %>
+              Avancement: <%= chantier.avancement %>
+              Statut: <%= chantier.statut %>
+              <%= link_to "Modifier", edit_chantier_path(chantier)  %>
+              <% end %>
+            </div>
+      </div>
+
+
 
