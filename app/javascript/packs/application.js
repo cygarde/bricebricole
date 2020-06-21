@@ -29,12 +29,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { meteo } from "../components/meteo";
+import { loadDynamicBannerText } from "../components/banner";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
-
   meteo();
+  loadDynamicBannerText();
 
 });
