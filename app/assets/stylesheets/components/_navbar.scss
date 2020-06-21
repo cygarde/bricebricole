@@ -14,15 +14,12 @@
 }
 
 .logo {
-  color: white;
-  font: bold 24px/1 sans-serif;
+  max-width: 50%;
+  height: auto;
 }
 
 .logo:hover {
   color: #ee680f;
 }
 
-.imglogo {
-  max-width: 100%;
-  height: auto;
-}
+
