@@ -22,3 +22,8 @@ client1.save
 client2 = Client.new(nom: "France", prenom: "Claire", telephone_1: "0617283948", telephone_2: "0138495839", email: "clairefrance@gmail.com", adresse: "36 Rue Sainte, 13006 Marseille", categorie: "Entreprise", information: "joignable sur son portable", fidelite: "première collaboration", entreprise: "Bouygues")
 client2.user = user
 client2.save
+
+
+tache1 = Tache.new(object: "Remplacement_chaudière", description: "Il faudrait reparer la chaudière elle à un problème d'écrous", priorite: 1, environnement: "dehors")
+ tache1.user = user
+ tache1.save
