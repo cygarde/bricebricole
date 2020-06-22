@@ -2,7 +2,6 @@ const meteo = () => {
   const apikey = '9126c55318ce8f47eef482e881e6846e';
 
   const ville = document.getElementById("ville").innerHTML;
-  console.log(ville);
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apikey}&units=metric&lang=fr`)
     .then(response => response.json())
     .then((data) => {
