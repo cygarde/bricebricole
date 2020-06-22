@@ -1,13 +1,39 @@
 <%= simple_form_for @client do |f| %>
-  <%= f.input :nom %>
-  <%= f.input :prenom %>
-  <%= f.input :telephone_1 %>
-  <%= f.input :telephone_2 %>
-  <%= f.input :email %>
-  <%= f.input :adresse %>
-  <%= f.input :categorie %>
-  <%= f.input :information %>
-  <%= f.input :fidelite %>
-  <%= f.input :entreprise %>
-  <%= f.submit "Valider", class: "btn btn-success mt-2" %>
-<% end %>
+  <div class="form-show col-sm-9 mt-4 pt-4">
+    <div class="row">
+      <div class="col-sm-9 case">
+        <%= f.input :entreprise %>
+        <%= f.input :fidelite %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="d-flex case">
+          <%= f.input :nom %>
+            <div class="champ">
+              <%= f.input :prenom %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="d-flex case">
+          <%= f.input :telephone_1 %>
+            <div class="champ">
+              <%= f.input :telephone_2 %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9 case">
+        <%= f.input :email %>
+        <%= f.input :adresse %>
+        <%= f.input :categorie %>
+        <%= f.input :information %>
+        <%= f.button :submit %>
+      </div>
+    </div>
+    <% end %>
+  </div>
