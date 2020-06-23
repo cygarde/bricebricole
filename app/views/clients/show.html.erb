@@ -1,30 +1,24 @@
 <div class="container">
+
   <div class="d-flex">
-    <h1 class="font-weight-bold"><%= @client.entreprise %></h1>
-      <h1><%= @client.prenom %> <%= @client.nom %> </h1>
-    </div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
+    <div class="card" style="margin-top: 8px">
 
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Téléphone Portable: <%= @client.telephone_1 %></li>
-              <li class="list-group-item">Téléphone Fixe: <%= @client.telephone_2 %></li>
-              <li class="list-group-item">Adresse: <%= @client.adresse %></li>
-              <li class="list-group-item">Email: <%= @client.email %></li>
-              <li class="list-group-item">Statut: <%= @client.categorie %></li>
-              <li class="list-group-item">Informations: <%= @client.information %></li>
-              <li class="list-group-item">Type de client: <%= @client.fidelite %></li>
-            </ul>
-
-          </div>
-
-        </div>
+          <ul class="list-group list-group-flush">
+            <div class="card-header">
+              <h4 class="font-weight-bold"><%= @client.entreprise %></h4>
+              <li class="list-group-item font-weight-bold"><%= @client.prenom %> <%= @client.nom %></li>
+            </div>
+            <li class="list-group-item">Téléphone Portable: <%= @client.telephone_1 %></li>
+            <li class="list-group-item">Téléphone Fixe: <%= @client.telephone_2 %></li>
+            <li class="list-group-item">Adresse: <%= @client.adresse %></li>
+            <li class="list-group-item">Email: <%= @client.email %></li>
+            <li class="list-group-item">Statut: <%= @client.categorie %></li>
+            <li class="list-group-item">Informations: <%= @client.information %></li>
+            <li class="list-group-item">Type de client: <%= @client.fidelite %></li>
+          </ul>
       </div>
     </div>
-  </div>
 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-chantier" >Ajouter un chantier</button>
 

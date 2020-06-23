@@ -1,4 +1,5 @@
 <div class="container">
+
   <h1>Mes clients</h1>
 
   <%= form_tag clients_path, method: :get do %>
@@ -30,27 +31,58 @@
               </div>
             <% end  %>
         </div>
+
+
+    <h2>Clients</h2>
+
+    <div class="d-flex">
+      <div><%= form_tag clients_path, method: :get do %>
+        <%= select_tag "categorie",
+        options_for_select(@categories),
+        include_blank: 'Catégorie'
+        %>
       </div>
+      <div>
+        <%= select_tag "fidelite",
+        options_for_select(@fidelites),
+        include_blank: 'Fidélité'
+        %>
+
+      </div>
+    </div>
+    <div>
+      <%= text_field_tag "adresse", nil, placeholder: "Code postal"
+      %>
+      <%= submit_tag "Rechercher", class: "btn btn-primary mb-1 btn-sm" %>
+    <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="card">
+          <div class="card-body">
+
+            <% @clients.each do |client|  %>
+
+                <div class="card-header d-flex justify-content-between">
+                  <%= client.prenom %>
+                  <%= client.nom %>
+                  <%= link_to 'Détails', client_path(client) %>
+                </div>
+              <% end  %>
+              <div>
+                <%= link_to new_client_path do %>
+                <button type="button" class="btn btn-outline-dark mt-2 btn-sm">Nouveau client</button>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div>
+      <%= link_to "Retour", root_path %>
     </div>
   </div>
 
-    <h1> Listes des chantiers </h1>
-
-
-
-
-
-
-
-
-  <div>
-    <%= link_to new_client_path do %>
-    <button type="button" class="btn btn-outline-dark">Ajouter un nouveau client</button>
-    <% end %>
-  </div>
-    <div>
-    <%= link_to "Retour", root_path %>
-  </div>
-
-</div>
 
