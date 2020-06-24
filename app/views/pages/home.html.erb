@@ -6,8 +6,14 @@
       <span id="banner-typed-text">test</span>
     </p>
     <div  class="btn-inscription">
-      <a class="btn-home btn btn-info btn-lg" href="#">Inscris-toi !</a>
-    </div>
+    <%= link_to new_user_session_path do %>
+    <button type="button" class="btn-home btn btn-info btn-lg">Inscris-toi !</button>
+    <% end %>
+  </div>
   </div>
 </div>
 <%= render 'shared/footer' %>
+
+
+
+
