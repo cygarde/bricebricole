@@ -1,3 +1,5 @@
+import Typed from 'typed.js';
+
 const loadDynamicBannerText = () => {
   new Typed('#banner-typed-text', {
     strings: ["Clients","Agenda", "Tâches", "Priorités", "Devis", "Factures", "Alertes"],
