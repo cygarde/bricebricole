@@ -1,0 +1,19 @@
+<%= simple_form_for [ @tache ]  do |f| %>
+                <%= f.input :objet%>
+                <%= f.input :description%>
+                <%= f.input :note%>
+                <%= f.input :type %>
+                <%= f.input :priorite %>
+                <%= f.input :environnement %>
+                <%= f.input :date_debut%>
+                <%= f.input :date_fin %>
+                <%= f.input :heure_debut%>
+                <%= f.input :heure_fin%>
+                <%= f.input :jalon_anomalie %>
+                <%= f.input :dependance %>
+                <%= f.input :equipement %>
+                <%= f.input :equipement_description %>
+                <%= f.input :realisation %>
+                <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
+              <% end %>

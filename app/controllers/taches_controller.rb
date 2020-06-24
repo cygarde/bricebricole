@@ -1,28 +1,27 @@
 class TachesController < ApplicationController
+require 'date'
 
-
-  #Montre toute les tâches
+  #Montre toute les tâches du jour
   def index
-    @taches = Tache.all
+    @dates = Date.new(2001)
+
   end
 
   #Montre la tache précise
   def show
-    @tache = Tache.find[params:id]
   end
 
 
  #Montre un nouveau formulaire
 
   def new
-
+    @tache = Tache.new
 
   end
 
 #creer une taches
 
   def create
-
 
   end
 
@@ -49,6 +48,20 @@ class TachesController < ApplicationController
 
   end
 
+
+
+
+private
+
+  def set_client
+    @tache = Tache.find(params[:id])
+  end
+
+  def tache_params
+    params.require(:tache).permit(:objet, :description, :note, :type, :priorite, :environnement, :date_debut, :date_fin, :heure_debut, :heure_fin, :jalon_anomalie, :dependance, :equipement, :equipement_description, :realisation)
+  end
+
+end
 
 
 end
