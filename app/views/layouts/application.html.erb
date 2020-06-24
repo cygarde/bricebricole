@@ -14,14 +14,14 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <% if current_page?(root_path) %>
+    <% if current_page?(dashboard_path) %>
       <div class="content">
         <%= yield %>
       </div>
+      <%= render 'shared/mbottom' %>
     <% else %>
       <div class="content">
         <%= yield %>
-        <%= render 'shared/mbottom' %>
       </div>
     <% end %>
   </body>
