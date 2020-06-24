@@ -2,16 +2,17 @@
   <div class="form-show col-sm-9 mt-4 pt-4">
     <div class="row">
       <div class="col-sm-9 case">
-        <%= f.input :entreprise %>
-        <%= f.input :fidelite %>
+        <%= f.input :categorie, :collection => ['Entreprise', 'Particulier'], :prompt => "Catégorie", :label => false %>
+        <%= f.input :entreprise, :placeholder => 'Nom Entreprise', :label => false %>
+        <%= f.input :fidelite, :placeholder => 'Fidélité', :label => false %>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-9">
         <div class="d-flex case">
-          <%= f.input :nom %>
+          <%= f.input :nom, :placeholder => 'Nom', :label => false %>
             <div class="champ">
-              <%= f.input :prenom %>
+              <%= f.input :prenom, :placeholder => 'Prénom', :label => false %>
             </div>
         </div>
       </div>
@@ -19,19 +20,18 @@
     <div class="row">
       <div class="col-sm-9">
         <div class="d-flex case">
-          <%= f.input :telephone_1 %>
+          <%= f.input :telephone_1, :placeholder => 'Fixe', :label => false %>
             <div class="champ">
-              <%= f.input :telephone_2 %>
+              <%= f.input :telephone_2, :placeholder => 'Portable', :label => false %>
             </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-9 case">
-        <%= f.input :email %>
-        <%= f.input :adresse %>
-        <%= f.input :categorie %>
-        <%= f.input :information %>
+        <%= f.input :email, :placeholder => 'Email', :label => false %>
+        <%= f.input :adresse, :placeholder => 'Adresse', :label => false %>
+        <%= f.input :information, :placeholder => 'Information', :label => false %>
         <%= f.button :submit %>
       </div>
     </div>

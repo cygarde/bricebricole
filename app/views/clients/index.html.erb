@@ -1,39 +1,6 @@
 <div class="container">
 
-  <h1>Mes clients</h1>
-
-  <%= form_tag clients_path, method: :get do %>
-    <%= select_tag "categorie",
-    options_for_select(@categories),
-    include_blank: true
-    %>
-    <%= select_tag "fidelite",
-    options_for_select(@fidelites),
-    include_blank: true
-    %>
-    <%= text_field_tag "adresse", nil, placeholder: "Code postal"
-    %>
-    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
-  <% end %>
-
-  <div class="row">
-    <div class="col-sm-9">
-      <div class="card">
-        <div class="card-body">
-
-          <% @clients.each do |client|  %>
-
-              <div class="card-header d-flex justify-content-between">
-                <%= client.nom %>
-                <%= client.prenom %>
-                - <%= client.categorie %>
-                <%= link_to 'Détails', client_path(client) %>
-              </div>
-            <% end  %>
-        </div>
-
-
-    <h2>Clients</h2>
+    <h4 class="mt-2">Clients</h4>
 
     <div class="d-flex">
       <div><%= form_tag clients_path, method: :get do %>
