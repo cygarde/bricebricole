@@ -3,10 +3,12 @@
   background: #0f395f;
   border-bottom-color: #2f999e;
   border-bottom: 5px solid #2f999e;
+  color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -14,12 +16,24 @@
 }
 
 .logo {
-  max-width: 50%;
+  display: flex;
+  max-width: 60%;
   height: auto;
+  justify: center;
 }
 
 .logo:hover {
   color: #ee680f;
 }
+#navbarSupportedContent li {
+  color: white;
+}
 
+.nav-item {
+  color: white;
+}
+
+.dropdown-item {
+  color: white;
+}
 

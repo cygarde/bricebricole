@@ -4,13 +4,18 @@ body {
  background-color: #d5d5d5;
 }
 
-.h1 {
-  color: white;
+
+h1 {
+  display: flex;
+  color: black;
+  font-size: 20px;
+  justify-content: left;
   font-size: 10px;
+
 }
 
 .content  {
-  height: calc( 100vh - 66px - 100px);
+  height: calc( 100vh - 61px - 66px);
 }
 
 .btn-home {
