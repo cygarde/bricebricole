@@ -30,12 +30,12 @@ import "bootstrap";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { meteo } from "../components/meteo";
 import { loadDynamicBannerText } from "../components/banner";
-
+import flatpickr from "../plugins/flatpickr";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
   meteo();
   loadDynamicBannerText();
-
+  calendrier();
 });
