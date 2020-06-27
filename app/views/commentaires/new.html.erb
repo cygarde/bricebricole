@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h4 class="mt-3">Ajouter une note</h4>
+
+  <%= simple_form_for [ @client, @commentaire ] do |f| %>
+    <%= f.input :content, :placeholder => 'Note sur le client', :label => false %>
+    <%= f.submit "Valider la note", class: "btn btn-outline-dark mt-0 btn-sm" %>
+  <% end %>
+
+  <div class="d-flex">
+
+    <div class="card-header mt-3">Mes notes</div>
+
+      <ul class="list-group mt-3">
+        <% @client.commentaires.each do |commentaire| %>
+          <li class="list-group-item"><%= commentaire.content %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+      <%= link_to 'Retour', client_path(@client), class: "fixed-bottom ml-2" %>
+</div>
+

@@ -1,10 +1,18 @@
 .mbottom {
-  background: #cd5e15;
-  color: #0f395f;
+  background-color: #cd5e15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 66px;
+  padding: 0px 50px;
+  color: white;
+  color: rgba(0,0,0,0.3);
   width: 100%;
-
-
+  z-index: 200;
+  position: fixed;
 }
+
+
 
 .fa-tachometer-alt {
   color: white;

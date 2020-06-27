@@ -4,21 +4,22 @@
   background-size: cover;
   position: relative;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
-  background-image: url(vis.jpg);
-  height: calc( 100vh - 66px - 100px );
+  background-image: image-url("vis.png");
+  height: calc( 100vh - 61px - 66px );
 }
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
+  font-family: 'Londrina Outline', cursive;
 }
 
 .banner p {
-  font-size: 15px;
-  color: white;
-  opacity: .7;
+  font-size: 20px;
+  color: #cd5e15;
+  font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
