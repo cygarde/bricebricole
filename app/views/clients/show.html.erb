@@ -43,12 +43,12 @@
             <div class="container col-9">
               <%= simple_form_for [ @chantier]  do |f| %>
                 <%= f.input :reference %>
-                <%= f.input :client_id, collection: @clients %>
+                <%= f.input :client_id, collection: @clients, :label_method => :nom,:value_method => :id  %>
                 <%= f.input :nom %>
                 <%= f.input :description %>
                 <%= f.input :statut %>
                 <%= f.input :priorite %>
-                <%= f.input :date_debut %>
+                <%= f.input :date_debut, class:"flatpickr js-flatpickr-dateTime", placeholder:"Selectionnez vos dates" %>
                 <%= f.input :date_fin_estimee %>
                 <%= f.input :date_fin %>
                 <%= f.input :adresse %>

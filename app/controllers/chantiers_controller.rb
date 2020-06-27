@@ -10,6 +10,7 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
   def new
     @chantier = Chantier.new
+    @clients = Client.all
   end
 
   def create
