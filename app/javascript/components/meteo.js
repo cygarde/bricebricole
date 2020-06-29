@@ -6,17 +6,18 @@ const meteo = () => {
       .then(response => response.json())
       .then((data) => {
         console.log(data);
+        const icon = data.weather[0].icon;
         const main = data.weather[0].main;
         const description = data.weather[0].description;
-        const icon = data.weather[0].icon;
         const temp = data.main.temp;
 
         const result = document.getElementById("meteo");
 
-        result.innerText = `${description} ${temp}`;
+        result.innerText = `${description} ${Math.round(temp)}°C`;
 
         const meteoImg = document.querySelector(".img-meteo");
         meteoImg.setAttribute("src",`http://openweathermap.org/img/wn/${icon}@2x.png`);
+
       });
   };
 };

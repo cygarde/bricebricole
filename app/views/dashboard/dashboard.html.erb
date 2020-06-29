@@ -1,19 +1,64 @@
-<div><h1>Bonjour <%= @user.prenom  %></h1></div>
 <div class="container">
-  <div class="card-meteo">météo
-
-    <div id="meteo"><div id="ville">Marseille</div></div>
-    <img class="img-meteo" src="" alt="">
+  <div class="rows"><div><h1>Bonjour <%= @user.prenom  %></h1></div>
+</div>
+<div class="tblx-dash-jour d-flex justify-space-between">
+  <div>
+    <p class="titre-chantier"><i class="fas fa-tools p-1"></i>tes Chantiers</p>
+    <div class="d-flex">
+      <div class="card-chantiers">
+        <div>
+          <p class="chantier-cours"><%= @chantiersencours %></p>
+          <p class="desc-chantier-cours">en cours</p>
+        </div>
+        <div>
+          <p class="chantier-venir"><%= @chantiersavenir %></p>
+          <p class="desc-chantier-venir">en attente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ctnr-meteo">
+    <p class="titre-meteo"><i class="fas fa-cloud-sun p-1"></i>ta Météo</p>
+    <div>
+      <div class="card-meteo">
+        <img class="img-meteo">
+        <div id="meteo"><div id="ville">marseille</div></div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="container d-flex">
-  <div class="card-chantier ">
-    <div class="card-chantier-interieur"><%= @chantiersencours %></div>
-    <div class="card-chantier-interieur"><%= @chantiersavenir %></div>
+<div class="chargew dflex">
+  <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
+  <%= @chargetravailpourcentage %>
+  <div class="curseur">
+    <label for="range">
+      <input type="range" name="range" id="range" min="0" max="300" step="5" value="175"/>
+    </label>
+    <output for="range" class="output"></output>
   </div>
-  <div class="card-tache">Liste des tâches</div>
-  <div></div>
+  <div class="charge-w-option"></div>
 </div>
-<div>Tâche du jour en exterieur</div>
-<div>planning rdv</div>
-<div>charge de travail</div>
+<hr class="ligne-separate">
+<div class="ctnr-alertes">
+    <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
+    <div>
+      <div class="card-alerte m-2">
+      <p>notification 1</p>
+      </div>
+    </div>
+</div>
+<div class="ctnr-taches">
+    <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
+    <div>
+      <div class="card-tache m-2">
+      <p>tâche 1</p>
+      </div>
+      <div class="card-tache m-2">
+      <p>tâche 2</p>
+      </div>
+      <div class="card-tache m-2">
+      <p>tâche 3</p>
+      </div>
+    </div>
+</div>
+</div>
