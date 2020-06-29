@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :chantiers
   has_many :taches
   has_many :clients
+
 end
