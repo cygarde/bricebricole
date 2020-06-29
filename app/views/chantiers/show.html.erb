@@ -1,19 +1,15 @@
 <h1><%= @chantier.nom %></h1>
-
 <h2>Photos</h2>
-
 <% @chantier.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <h3><%= @chantier.description %></h3>
 <h3><%= @chantier.date_debut %></h3>
 <h3><%= @chantier.date_fin_estimee %></h3>
-
-             <h4> Reférence: <%= @chantier.reference %></h4>
-             <h4> Nom du chantier: <%= @chantier.adresse %></h4>
-             <h4> Priorité: <%= @chantier.priorite %></h4>
-             <h4> Avancement: <%= @chantier.avancement %></h4>
-             <h4> Statut: <%= @chantier.statut %></h4>
-             <%= link_to "Modifier", edit_chantier_path()  %>
-              <%= link_to "Retour", chantiers_path() %>
-
+<h4> Reférence: <%= @chantier.reference %></h4>
+<h4> Nom du chantier: <%= @chantier.adresse %></h4>
+<h4> Priorité: <%= @chantier.priorite %></h4>
+<h4> Avancement: <%= @chantier.avancement %></h4>
+<h4> Statut: <%= @chantier.statut %></h4>
+<%= link_to "Modifier", edit_chantier_path()  %>
+<%= link_to "Retour", chantiers_path() %>
