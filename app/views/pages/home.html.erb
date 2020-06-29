@@ -1,25 +1,16 @@
-<%if user_signed_in? %>
 <div class="banner">
   <div class="container">
-    <h1 class="text-left p-0"><strong>ton quotidien à portée de main</strong></h1>
+    <h1><strong>ton quotidien à portée de main</strong></h1>
     <p>Tableau de bord avec <span id="banner-typed-text"></span></p>
-  </div>
-</div>
-<%= render 'shared/footer' %>
-
-<%else %>
-<div class="banner">
-  <div class="container">
-    <h1 class="text-left"><strong>ton quotidien à portée de main</strong></h1>
-    <p>Tableau de bord avec <span id="banner-typed-text"></span> </p>
-    <div  class="btn-inscription">
-    <%= link_to new_user_session_path do %>
-    <button type="button" class="btn-home btn btn-info">Je m'inscris !</button>
+    <% if user_signed_in? %>
+      <button type="button" class="btn-home btn btn-info">Bienvenue !</button>
+    <% else %>
+      <div  class="btn-inscription">
+        <%= link_to new_user_session_path do %>
+          <button type="button" class="btn-home btn btn-info">Je m'inscris !</button>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  </div>
-
 </div>
-<%end %>
-
   <%= render 'shared/footer' %>
