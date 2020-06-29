@@ -1,3 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap');
+
+h1 {
+  color: #0f395f;
+  font-size: 20px;
+  justify-content: center;
+  font-family:  'Rubik', sans-serif;
+  padding-top: 10px;
+}
+
 h2 {
   color: white;
 }
+
+.ligne-separate {
+  border: 1px solid #cd5e15;
+}
+
+.titre-meteo  {
+  margin: 0px;
+  color: #0f395f;
+}
+
+.titre-chantier {
+  margin: 0px;
+  color: #0f395f;
+}
+
+.titre-chargew {
+  margin: 0px;
+  color: #0f395f;
+}
+
+.titre-taches {
+  margin: 0px;
+  color: #cd5e15;
+  text-decoration: underline #cd5e15;
+}
+
+.titre-alertes {
+  margin: 0px;
+  color: #cd5e15;
+  text-decoration: underline #cd5e15;
+}
+
+.img-meteo {
+  max-width: 46%;
+  height: auto;
+}
+
+.chantier-cours {
+  font-family: 'Rubik', sans-serif;
+  color: #cd5e15;
+  font-size: 40px;
+  padding-left: 5px;
+  margin: 0px;
+}
+
+.chantier-venir {
+  font-family: 'Rubik', sans-serif;
+  color: #2f999e;
+  font-size: 40px;
+  padding-left: 10px;
+  margin: 0px;
+}
+
+.desc-chantier-cours {
+  font-family: 'Rubik', sans-serif;
+  color: #cd5e15;
+  font-size: 15px;
+  padding-left: 5px;
+  margin: 0px;
+}
+
+.desc-chantier-venir {
+  font-family: 'Rubik', sans-serif;
+  color: #2f999e;
+  font-size: 15px;
+  padding-left: 10px;
+  margin: 0px;
+}
+
+
