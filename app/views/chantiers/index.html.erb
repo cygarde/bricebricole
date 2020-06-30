@@ -1,11 +1,10 @@
-    <h1> Listes des chantiers </h1>
+<h1> Listes des chantiers </h1>
 <div class="container">
-
-
   <div class="row">
     <div class="col-sm-9">
       <div class="card">
         <div class="card-body">
+
           <% @chantiers.each do |chantier|  %>
             <div class="card-header d-flex justify-content-between">
               Nom du chantier: <%= chantier.nom %>
@@ -21,7 +20,7 @@
       </div>
     </div>
   </div>
-      <div>
+  <div>
     <%= link_to "Retour", root_path %>
   </div>
 </div>
