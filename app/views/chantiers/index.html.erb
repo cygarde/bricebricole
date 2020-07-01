@@ -1,4 +1,4 @@
-    <h1> Listes des chantiers </h1>
+<h1> Listes des chantiers </h1>
 <div class="container">
 
 <div><%= form_tag chantiers_path, method: :get do %>
@@ -8,12 +8,12 @@
   %>
   <%= submit_tag "Rechercher", class: "btn btn-primary mb-1 btn-sm" %>
   <% end %>
-</div>
 
   <div class="row">
     <div class="col-sm-9">
       <div class="card">
         <div class="card-body">
+
           <% @chantiers.each do |chantier|  %>
             <div class="card-header d-flex justify-content-between">
               Nom du chantier: <%= chantier.nom %>
@@ -29,6 +29,7 @@
       </div>
     </div>
   </div>
+
       <div>
     <%= link_to new_chantier_path do %>
       <button type="button" class="btn btn-primary mb-1 btn-sm">Nouveau chantier</button>
