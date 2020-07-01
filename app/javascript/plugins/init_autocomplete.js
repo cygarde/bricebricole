@@ -9,6 +9,10 @@ const initAutocomplete = () => {
   if (addresschantierInput) {
     places({ container: addresschantierInput });
   }
+  const addressuserInput = document.getElementById('user_adresse');
+  if (addressuserInput) {
+    places({ container: addressuserInput });
+  }
 };
 
 export { initAutocomplete };
