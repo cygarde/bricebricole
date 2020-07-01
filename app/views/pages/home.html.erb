@@ -3,7 +3,9 @@
     <h1><strong>ton quotidien à portée de main</strong></h1>
     <p>Tableau de bord avec <span id="banner-typed-text"></span></p>
     <% if user_signed_in? %>
-      <button type="button" class="btn-home btn btn-info">Bienvenue !</button>
+      <%= link_to dashboard_path do %>
+        <button type="button" class="btn-home btn btn-info">Bienvenue !</button>
+      <% end %>
     <% else %>
       <div  class="btn-inscription">
         <%= link_to new_user_session_path do %>

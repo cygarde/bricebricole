@@ -2,10 +2,10 @@
 
               <%= simple_form_for [ @chantier ]  do |f| %>
                 <%= f.input :reference %>
-                <%= f.input :client_id, collection: @clients, :label_method => :nom,:value_method => :id %>
+                <%= f.input :client_id, collection: @clients, :label_method => :nom,:value_method => :id, :prompt => "Sélection" %>
                 <%= f.input :nom %>
                 <%= f.input :description %>
-                <%= f.input :statut %>
+                <%= f.input :statut, :collection => ['En cours', 'En attente'], :prompt => "Sélection" %>
                 <%= f.input :priorite %>
                 <%= f.input :date_debut, as: :string, required: false, input_html: {class: "datepicker"}, placeholder:"Selectionnez vos dates" %>
                 <%= f.input :date_fin_estimee, as: :string, required: false, input_html: {class: "datepicker"}%>
@@ -14,7 +14,7 @@
                 <%= f.input :montant_versement %>
                 <%= f.input :avancement %>
                 <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-                <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
+                <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm", style: "width: 100%"  %>
               <% end %>
 
 
