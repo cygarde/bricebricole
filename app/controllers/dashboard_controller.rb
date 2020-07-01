@@ -25,5 +25,6 @@ class DashboardController < ApplicationController
     #@jourstravaillés = @user.jours_travail.count
     #@tpstotaluser = @jourstravaillés * @tpswjournalier
     #@chargetravailpourcentage = (@tempstotaltachestotalesemaine * 100) / @tpstotaluser
+
   end
 end

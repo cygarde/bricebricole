@@ -14,5 +14,4 @@ const initAutocomplete = () => {
     places({ container: addressuserInput });
   }
 };
-
 export { initAutocomplete };
