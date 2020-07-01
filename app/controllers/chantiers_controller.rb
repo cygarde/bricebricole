@@ -4,8 +4,12 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
 
   def index
-    @chantiers = Chantier.all
-    @client = Client.new
+    @statut = ["En cours", "En attente"]
+    if (params[:statut].present?)
+      @chantiers = Chantier.search_by_statut(params[:statut])
+    else
+      @chantiers = Chantier.all
+    end
   end
 
   def new
@@ -29,20 +33,17 @@ before_action :set_chantier, only: [:show, :edit, :update]
   end
 
   def edit
-    @chantier = Chantier.find(params[:id])
-
-
   end
 
   def update
     @chantier.user = current_user
-    respond_to do |format|
+ #   respond_to do |format|
       if @chantier.update(chantier_params)
         redirect_to chantier_path(@chantier, @client_id)
       else
         render :edit
       end
-    end
+#   end
   end
 
 

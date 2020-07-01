@@ -1,5 +1,14 @@
 <h1> Listes des chantiers </h1>
 <div class="container">
+
+<div><%= form_tag chantiers_path, method: :get do %>
+  <%= select_tag "statut",
+  options_for_select(@statut),
+  include_blank: 'Statut'
+  %>
+  <%= submit_tag "Rechercher", class: "btn btn-primary mb-1 btn-sm" %>
+  <% end %>
+
   <div class="row">
     <div class="col-sm-9">
       <div class="card">
@@ -20,7 +29,11 @@
       </div>
     </div>
   </div>
-  <div>
+
+      <div>
+    <%= link_to new_chantier_path do %>
+      <button type="button" class="btn btn-primary mb-1 btn-sm">Nouveau chantier</button>
+      <% end %>
     <%= link_to "Retour", root_path %>
   </div>
 </div>
