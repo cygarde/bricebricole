@@ -1,8 +1,8 @@
-<%= simple_form_for [ @tache ]  do |f| %>
+<%= simple_form_for [ @chantier, @tache ]  do |f| %>
                 <%= f.input :objet%>
                 <%= f.input :description%>
                 <%= f.input :note%>
-                <%= f.input :type %>
+                <%= f.input :categorie %>
                 <%= f.input :priorite %>
                 <%= f.input :environnement %>
                 <%= f.input :date_debut%>

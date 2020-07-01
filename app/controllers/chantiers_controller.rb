@@ -6,6 +6,7 @@ before_action :set_chantier, only: [:show, :edit, :update]
   def index
     @chantiers = Chantier.all
     @client = Client.new
+
   end
 
   def new
@@ -29,9 +30,6 @@ before_action :set_chantier, only: [:show, :edit, :update]
   end
 
   def edit
-    @chantier = Chantier.find(params[:id])
-
-
   end
 
   def update

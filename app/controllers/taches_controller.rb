@@ -1,59 +1,55 @@
 class TachesController < ApplicationController
-require 'date'
 
-  #Montre toute les tâches du jour
+before_action :set_tache, only: [:show, :edit, :update, :destroy]
+
   def index
-    @dates = Date.new(2001)
-
+    @taches = Chantier.all
   end
 
-  #Montre la tache précise
   def show
   end
 
-
- #Montre un nouveau formulaire
-
   def new
+    @chantier = Chantier.find(params[:chantier_id])
     @tache = Tache.new
-
   end
-
-#creer une taches
 
   def create
-
+    @tache = Tache.new(tache_params)
+    @chantier = Chantier.find(params[:chantier_id])
+    @tache.user = current_user
+    @tache.chantier = @chantier
+    if @tache.save
+      redirect_to chantier_taches_path(@tache)
+    else
+      render :new
+    end
   end
 
-
-  #Mes à jour la tâches
   def update
-
-
+    @taches.user = current_user
+    respond_to do |format|
+      if @tache.update(tache_params)
+        redirect_to chantier_taches_path(@tache, @chantier_id)
+      else
+        render :edit
+      end
+    end
   end
 
-
-  #editer le formulaire
   def edit
-
-
-
+    @tache = Tache.find(params[:id])
   end
-
-  #supprimer une taches
 
   def destroy
-
-
-
+    @tache = Tache.find(params[:id])
+    @tache.destroy
+    redirect_to chantier_path(@tache.chantier)
   end
-
-
-
 
 private
 
-  def set_client
+  def set_tache
     @tache = Tache.find(params[:id])
   end
 

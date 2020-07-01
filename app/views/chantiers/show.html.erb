@@ -22,5 +22,10 @@
 
 <h4> Statut: <%= @chantier.statut %></h4>
 
+  <% @chantier.taches.each do |tache| %>
+    <p>  <%= tache.description %></p>
+  <% end %>
+
+
 <%= link_to "Modifier", edit_chantier_path()  %>
 <%= link_to "Retour", chantiers_path() %>
