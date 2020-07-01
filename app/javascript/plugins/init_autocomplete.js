@@ -5,6 +5,13 @@ const initAutocomplete = () => {
   if (addressInput) {
     places({ container: addressInput });
   }
+  const addresschantierInput = document.getElementById('chantier_adresse');
+  if (addresschantierInput) {
+    places({ container: addresschantierInput });
+  }
+  const addressuserInput = document.getElementById('user_adresse');
+  if (addressuserInput) {
+    places({ container: addressuserInput });
+  }
 };
-
 export { initAutocomplete };
