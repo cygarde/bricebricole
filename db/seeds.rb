@@ -9,7 +9,6 @@
 
 require "open-uri"
 
-
 Client.destroy_all
 User.destroy_all
 
@@ -25,5 +24,4 @@ client2.save
 
 
 tache1 = Tache.new(object: "Remplacement_chaudière", description: "Il faudrait reparer la chaudière elle à un problème d'écrous", priorite: 1, environnement: "dehors")
- tache1.user = user
- tache1.save
+tache1.save
