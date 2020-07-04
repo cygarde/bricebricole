@@ -4,8 +4,8 @@ class Chantier < ApplicationRecord
   has_many_attached :photos
   has_many :taches, class_name: 'Tache', dependent: :destroy
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  geocoded_by :adresse
+  after_validation :geocode, if: :will_save_change_to_adresse?
 
   include PgSearch::Model
 
