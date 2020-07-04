@@ -42,7 +42,8 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
 
   end
-   end
+  end
+
   def edit
   end
 
