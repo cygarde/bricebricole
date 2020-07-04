@@ -40,10 +40,9 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
     }
 
-    
 
   end
-
+   end
   def edit
   end
 
@@ -65,7 +64,7 @@ private
   end
 
   def chantier_params
-    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :address, :montant_versement, :avancement, photos: [])
-  end
-
+    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :address, :montant_versement, :avancement, :photos , :longitude, :latitude)
+    end
 end
+
