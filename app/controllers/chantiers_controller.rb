@@ -30,6 +30,7 @@ before_action :set_chantier, only: [:show, :edit, :update]
   end
 
   def show
+
   end
 
   def edit
