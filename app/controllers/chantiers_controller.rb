@@ -29,7 +29,19 @@ before_action :set_chantier, only: [:show, :edit, :update]
   end
 
   def show
-    @chantier = Chantier.find(params[:id])
+
+   @chantier = Chantier.find(params[:id])
+   @chantiers = Chantier.where.not(latitude: nil, longitude: nil)
+   @markers = @chantiers.map do |chantier|
+    {
+      lat: chantier.latitude,
+      lng: chantier.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { chantier: chantier })
+
+    }
+
+    
+
   end
 
   def edit
@@ -53,7 +65,7 @@ private
   end
 
   def chantier_params
-    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement, photos: [])
+    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :address, :montant_versement, :avancement, photos: [])
   end
 
 end
