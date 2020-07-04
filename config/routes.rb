@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :clients do
     resources :commentaires, only: [ :new, :create ]
   end
-  resources :chantiers
-  resources :taches
+  resources :chantiers do
+    resources :taches
+  end
   get '/dashboard', to:'dashboard#dashboard'
 
 end

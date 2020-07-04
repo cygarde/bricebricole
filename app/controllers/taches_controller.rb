@@ -1,67 +1,56 @@
 class TachesController < ApplicationController
-require 'date'
-
-  #Montre toute les tâches du jour
   def index
-    @dates = Date.new(2001)
-
+    @taches = Tache.all
   end
 
-  #Montre la tache précise
   def show
-  end
-
-
- #Montre un nouveau formulaire
-
-  def new
-    @tache = Tache.new
-
-  end
-
-#creer une taches
-
-  def create
-
-  end
-
-
-  #Mes à jour la tâches
-  def update
-
-
-  end
-
-
-  #editer le formulaire
-  def edit
-
-
-
-  end
-
-  #supprimer une taches
-
-  def destroy
-
-
-
-  end
-
-
-
-
-private
-
-  def set_client
     @tache = Tache.find(params[:id])
   end
 
-  def tache_params
-    params.require(:tache).permit(:objet, :description, :note, :type, :priorite, :environnement, :date_debut, :date_fin, :heure_debut, :heure_fin, :jalon_anomalie, :dependance, :equipement, :equipement_description, :realisation)
+  def new
+    @chantier = Chantier.find(params[:chantier_id])
+    @tache = Tache.new
   end
 
+  def create
+    @tache = Tache.new(tache_params)
+    @chantier = Chantier.find(params[:chantier_id])
+    @tache.user = current_user
+    @tache.chantier = @chantier
+    if @tache.save
+      redirect_to chantier_taches_path(@tache)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @tache = Tache.find(params[:id])
+  end
+
+  def update
+    @tache = Tache.find(params[:id])
+    @tache.user = current_user
+    respond_to do |format|
+      if @tache.update(tache_params)
+        redirect_to chantier_taches_path(@tache, @chantier_id)
+      else
+        render :edit
+      end
+    end
+  end
+
+  def destroy
+   @tache = Tache.find(params[:id])
+   @tache.destroy
+   redirect_to chantiers_path
+  end
+
+  private
+
+  def tache_params
+    params.require(:tache).permit(:objet, :description, :note, :priorite, :environnement,
+      :date_debut, :date_fin, :categorie, :heure_debut, :heure_fin, :jalon_anomalie,
+      :dependance, :equipement, :equipement_description, :realisation)
+  end
 end
-
-
-

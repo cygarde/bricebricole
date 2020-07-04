@@ -2,7 +2,6 @@ class ChantiersController < ApplicationController
 
 before_action :set_chantier, only: [:show, :edit, :update]
 
-
   def index
     @statut = ["En cours", "En attente"]
     if (params[:statut].present?)
@@ -30,6 +29,8 @@ before_action :set_chantier, only: [:show, :edit, :update]
   end
 
   def show
+
+   @chantier = Chantier.find(params[:id])
    @chantiers = Chantier.where.not(latitude: nil, longitude: nil)
    @markers = @chantiers.map do |chantier|
     {
@@ -39,7 +40,8 @@ before_action :set_chantier, only: [:show, :edit, :update]
 
     }
 
-    end
+    
+
   end
 
   def edit
@@ -55,8 +57,6 @@ before_action :set_chantier, only: [:show, :edit, :update]
       end
 #   end
   end
-
-
 
 private
 
