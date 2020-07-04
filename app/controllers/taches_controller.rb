@@ -45,4 +45,12 @@ class TachesController < ApplicationController
    @tache.destroy
    redirect_to chantiers_path
   end
+
+  private
+
+  def tache_params
+    params.require(:tache).permit(:objet, :description, :note, :priorite, :environnement,
+      :date_debut, :date_fin, :categorie, :heure_debut, :heure_fin, :jalon_anomalie,
+      :dependance, :equipement, :equipement_description, :realisation)
+  end
 end

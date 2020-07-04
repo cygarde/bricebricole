@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :chantiers
-  has_many :taches
   has_many :clients
 
 end

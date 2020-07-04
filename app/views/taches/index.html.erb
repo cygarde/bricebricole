@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Mes Tâches</h1>
-  <%@dates=>
 
-
+  <% @taches.each do |tache| %>
+    <p><%= tache.objet %> - <%= tache.description %></p>
+  <% end %>
 </div>
