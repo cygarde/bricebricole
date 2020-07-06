@@ -29,6 +29,9 @@
     </div>
   </div>
   <div class="tache">
+    <%= link_to new_chantier_tach_path(@chantier) do %>
+    <button type=“button” class=“btn btn-outline-dark mt-2 btn-sm”>Nouvelle tâche</button>
+  <% end %>
     <p class="titre-tache"><i class="fas fa-tasks p-1"></i>liste des tâches</p>
     <% if @chantier.taches != [] %>
     <% @chantier.taches.each do |tache| %>
