@@ -19,7 +19,8 @@ class TachesController < ApplicationController
    # @tache.user = current_user
     @tache.chantier = @chantier
     if @tache.save
-      redirect_to chantier_taches_path(@tache)
+#     redirect_to chantier_taches_path(@tache)
+      redirect_to chantier_path(@chantier)
     else
       render :new
     end
