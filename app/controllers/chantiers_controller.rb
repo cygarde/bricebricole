@@ -65,7 +65,7 @@ private
   end
 
   def chantier_params
-    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement, :photos , :latitude, :longitude)
+    params.require(:chantier).permit(:nom, :client_id, :user_id, :reference, :description, :statut, :priorite, :date_debut, :date_fin_estimee, :date_fin, :adresse, :montant_versement, :avancement, :latitude, :longitude, photos: [])
     end
 end
 
