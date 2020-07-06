@@ -1,55 +1,58 @@
 <div class="container">
-
-  <h4 class="mt-3">Fiche client</h4>
-
-  <h4><%= @chantier.nom %></h4>
-
-  <h2>Photos</h2>
-
-  <% if @chantier.photos != [] %>
-    <% @chantier.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% end %>
-
-  <% if @chantier.taches != [] %>
-    <% @chantier.taches.each do |tache| %>
-      <p><%= tache.objet %> - <%= tache.description %></p>
-    <% end %>
-  <% end %>
-
-  <div class="d-flex">
+  <div class="rows"><div><h1>Chantier <%= @chantier.reference %></h1></div>
+  <div class="user d-flex justify-content-center">
     <h3><%= @chantier.client.prenom %></h3>
     <h3 class="ml-2"><%= @chantier.client.nom %></h3>
   </div>
-
-  <h3><%= @chantier.description %></h3>
-
-  <h3><%= @chantier.date_debut %></h3>
-
-  <h3><%= @chantier.date_fin_estimee %></h3>
-
-  <h4> Reférence: <%= @chantier.reference %></h4>
-
-  <h4> Nom du chantier: <%= @chantier.adresse %></h4>
-
-
-  <h4> Priorité: <%= @chantier.priorite %></h4>
-
-  <h4> Avancement: <%= @chantier.avancement %></h4>
-
-  <h4> Statut: <%= @chantier.statut %></h4>
-
- <div id="map" style="width: 100%; height: 600px;"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"
- data-markers = "<%= @markers.to_json %>"
-
- > </div>
-
-
-
+  <div class="tblx-progr-jour d-flex justify-space-between">
+    <div>
+      <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Informations", chantiers_path, class: "couleur-chantier" %></p>
+      <div class="d-flex">
+        <div class="card-information">
+          <div>
+            <p class="info"><%= @chantier.nom %></p>
+            <p class="info"><%= @chantier.description %></p>
+            <p class="info">Debut : <%= @chantier.date_debut %></p>
+            <p class="info">Fin : <%= @chantier.date_fin_estimee %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ctnr-progression">
+      <p class="titre-progression"><i class="fas fa-percentage p-1"></i>Progression</p>
+      <div>
+        <div class="card-progression">
+          <p>75%</p>
+          <p><%= @chantier.avancement %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tache">
+    <p class="titre-tache"><i class="fas fa-tasks p-1"></i>liste des tâches</p>
+    <% if @chantier.taches != [] %>
+    <% @chantier.taches.each do |tache| %>
+    <p class="desgn-tache"><%= tache.objet %> - <%= tache.description %></p>
+    <% end %>
+    <% end %>
+  </div>
+  <h2>Photos</h2>
+  <% if @chantier.photos != [] %>
+  <% @chantier.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <% end %>
+  <% if @chantier.taches != [] %>
+  <% @chantier.taches.each do |tache| %>
+  <p><%= tache.objet %> - <%= tache.description %></p>
+  <% end %>
+  <% end %>
+  <h4 class="adresse"></h4>
+  <div id="map" style="width: 100%; height: 600px;"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"
+    data-markers = "<%= @markers.to_json %>"
+  > </div>
   <%= link_to "Modifier", edit_chantier_path()  %>
   <%= link_to "Retour", chantiers_path() %>
- </div>
-
+</div>
 </div>

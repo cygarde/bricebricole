@@ -4,6 +4,11 @@
   justify-content: space-between;
 }
 
+.tblx-progr-jour {
+  justify-content: space-between;
+  vertical-align: center;
+}
+
 .card-chantier {
   overflow: hidden;
   height: 60px;
@@ -83,5 +88,36 @@
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+}
+
+.card-progression {
+  padding-top: 0px;
+  overflow: hidden;
+  background: transparent;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  color: #cd5e15;
+  font-size: 60px;
+}
+
+.card-information {
+  padding: 0px;
+  overflow: hidden;
+  background: transparent;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  justify-content: left;
+  text-align: left;
+  font-family: 'Rubik', sans-serif;
+  color: #0f395f;
+  font-size: 15px;
+  p {
+    margin: 0px;
+    color: #2f999e;
   }
 }
