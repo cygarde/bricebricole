@@ -29,6 +29,13 @@
 </div>
 <div class="chargew dflex">
   <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
+  <%  @taches_totales_semaine.each do |tache|  %>
+  <p> <%= @duree_tache  %> heures </p>
+  <% end %>
+
+  <p> votre temps de tache cette semaine </p>
+  <p> <%= @temps_taches_totale_semaine %> disponibles </p>
+
   <div class="curseur">
     <label for="range">
       <input type="range" name="range" id="range" min="0" max="300" step="5" value="175"/>
@@ -39,26 +46,25 @@
 </div>
 <hr class="ligne-separate">
 <div class="ctnr-alertes">
-    <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
-    <div>
-      <div class="card-alerte m-2">
+  <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
+  <div>
+    <div class="card-alerte m-2">
       <p>notification 1</p>
-      </div>
     </div>
+  </div>
 </div>
-
 <div class="ctnr-taches">
-    <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
-    <div>
-      <div class="card-tache m-2">
+  <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
+  <div>
+    <div class="card-tache m-2">
       <p>tâche 1</p>
-      </div>
-      <div class="card-tache m-2">
-      <p>tâche 2</p>
-      </div>
-      <div class="card-tache m-2">
-      <p>tâche 3</p>
-      </div>
     </div>
+    <div class="card-tache m-2">
+      <p>tâche 2</p>
+    </div>
+    <div class="card-tache m-2">
+      <p>tâche 3</p>
+    </div>
+  </div>
 </div>
 </div>
