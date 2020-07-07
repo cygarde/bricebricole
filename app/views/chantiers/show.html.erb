@@ -12,7 +12,7 @@
           <div>
             <p class="info"><%= @chantier.nom %></p>
             <p class="info"><%= @chantier.description %></p>
-            <p class="info">Debut : <%= @chantier.date_debut %></p>
+            <p class="info">Deb : <%= @chantier.date_debut %></p>
             <p class="info">Fin : <%= @chantier.date_fin_estimee %></p>
           </div>
         </div>
@@ -28,37 +28,39 @@
       </div>
     </div>
   </div>
+  <hr class="ligne-separate">
   <div class="tache">
-    <%= link_to new_chantier_tach_path(@chantier) do %>
-    <button type=“button” class=“btn btn-outline-dark mt-2 btn-sm”>Nouvelle tâche</button>
-  <% end %>
     <p class="titre-tache"><i class="fas fa-tasks p-1"></i>liste des tâches</p>
     <% if @chantier.taches != [] %>
-      <% @chantier.taches.each do |tache| %>
-        <p class="desgn-tache"><%= tache.objet %> - <%= tache.description %></p>
-      <% end %>
+    <% @chantier.taches.each do |tache| %>
+    <p class="desgn-tache"><%= tache.objet %> - <%= tache.description %></p>
     <% end %>
-
-
+    <% end %>
     <%= link_to new_chantier_tach_path(@chantier) do %>
-      <button type=“button” class=“btn btn-outline-dark mt-2 btn-sm”>Nouvelle tâche</button>
-    </div>
+    <button type="button" class="btn-tache btn btn-info">Ajout tâche</button>
     <% end %>
+  </div>
+  <hr class="ligne-separate">
+  <p class="titre-photo"><i class="fas fa-images p-1"></i>Photos</p>
+  <div>
+    <% if @chantier.photos != [] %>
+    <% @chantier.photos.each do |photo| %>
+    <p class="ctn-photo"><%= cl_image_tag photo.key, height: 300, width: 340, crop: :fill %></p>
+    <% end %>
+    <% end %>
+  </div>
+  <div>
+    <hr class="ligne-separate">
+    <p class="adresse"><i class="fas fa-map-marked-alt p-1"></i>Se situe</p>
+    <div id="map" style="width: 100%; height: 600px;"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"
+      data-markers = "<%= @markers.to_json %>"
+    > </div>
 
-
-  <h2>Photos</h2>
-  <% if @chantier.photos != [] %>
-  <% @chantier.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  <% end %>
-
-  <h4 class="adresse"></h4>
-  <div id="map" style="width: 100%; height: 600px;"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"
-    data-markers = "<%= @markers.to_json %>"
-  > </div>
-  <%= link_to "Modifier", edit_chantier_path()  %>
-  <%= link_to "Retour", chantiers_path() %>
+  </div>
+  <div>
+  <p class="btn-modif-chantier btn btn-info"> <%= link_to "Modifier", edit_chantier_path() %> </p>
+  <p class="btn-modif-chantier btn btn-info"> <%= link_to "Retour", chantiers_path() %> </p>
+</div>
 </div>
 </div>

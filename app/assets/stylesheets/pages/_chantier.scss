@@ -10,9 +10,16 @@
 .adresse {
   color: #2f999e;
   justify-content-center: center;
+  margin: 0px;
+  color: #0f395f;
 }
 
 .titre-tache {
+  margin: 0px;
+  color: #0f395f;
+}
+
+.titre-photo {
   margin: 0px;
   color: #0f395f;
 }
@@ -26,4 +33,23 @@
 .desgn-tache {
   background-color: white;
   box-shadow: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  font-weight: bold;
+}
+
+.btn-tache {
+  background-color: #cd5e15;
+  border-color: #cd5e15;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.btn-modif-chantier {
+  background-color: #cd5e15;
+  border-color: #cd5e15;
+  margin-top: 20px;
+  margin-left: 5px;
+  color: black;
 }
