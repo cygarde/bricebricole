@@ -44,11 +44,15 @@
 <hr class="ligne-separate">
 <div class="ctnr-alertes">
   <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
-  <div>
+  <div class="d-flex">
     <div class="card-alerte m-2">
       <% @taches_retard.each do |tache|  %>
-      <p> <%= tache.objet %> </p>
+      <p class="alerte-tache m-2"> <%= tache.objet %> </p>
       <% end %>
+    </div>
+    <div>
+     <button type="button" class="btn btn-warning btn-sm btn-block"><i class="sms fas fa-sms"></i></button>
+
     </div>
   </div>
 </div>
