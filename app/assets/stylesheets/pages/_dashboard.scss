@@ -33,14 +33,12 @@ h2 {
 
 .titre-taches {
   margin: 0px;
-  color: #cd5e15;
-  text-decoration: underline #cd5e15;
+  color: #0f395f;
 }
 
 .titre-alertes {
   margin: 0px;
-  color: #cd5e15;
-  text-decoration: underline #cd5e15;
+  color: #0f395f;
 }
 
 .img-meteo {
@@ -82,4 +80,19 @@ h2 {
 
 .couleur-chantier {
   color: #0f395f;
+}
+
+.sms {
+  color: white;
+  font-size: 15px;
+}
+
+.card-alerte {
+  background-color: white;
+  padding: 0px;
+}
+
+.alerte-tache {
+  background-color: white;
+  padding: 0px;
 }
