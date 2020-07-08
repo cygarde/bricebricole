@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
 
     #@tempsdispoartisan = @user.where(jours_travail:true)
     #@chargetravaildisp =
-
+    #methode charge de travail
     @from_date = DateTime.now.beginning_of_week
     @to_date = DateTime.now.end_of_week
     @taches_totales_semaine = []
@@ -24,12 +24,27 @@ class DashboardController < ApplicationController
     end
     @temps_taches_totale_semaine = 0
     @taches_totales_semaine.each do |tache|
-      @duree_tache = ((tache.heure_fin - tache.heure_debut) / 3600).round
+      @duree_tache = ((tache.date_fin - tache.date_debut) / 3600).round
       @temps_taches_totale_semaine += @duree_tache
+      @taches_totales_semaine
     end
-    #@tps_w_journalier = @user.heure_debut_travail - @user.heure_fin_travail
+    @duree_travail_jour = @user.heure_fin_travail - @user.heure_debut_travail
     #@jours_travailles = @user.jours_travail.count
-    #@tps_total_user = @jours_travailles * @tpswjournalier
-    #@charge_travail_pourcentage = (@temps_total_taches_totalesemaine * 100) / @tpstotaluser
+    @jours_travailles = 5
+    @duree_travail_semaine = @jours_travailles * @duree_travail_jour
+    @charge_travail_pourcentage_semaine = ((@temps_taches_totale_semaine * 100) / @duree_travail_semaine).round
+    @charge_travail_pourcentage_semaine = 80
+
+    #methode tache en retard
+    @taches_retard = []
+    @datenow = DateTime.now
+    @user.chantiers.each do |chantier|
+      chantier.taches.each do |tache|
+        if tache.date_fin < @datenow
+          @taches_retard << tache
+          @taches_retard
+        end
+      end
+    end
   end
 end

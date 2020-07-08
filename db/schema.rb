@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_185831) do
+ActiveRecord::Schema.define(version: 2020_07_08_203802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,10 +89,6 @@ ActiveRecord::Schema.define(version: 2020_07_04_185831) do
     t.text "note"
     t.integer "priorite"
     t.string "environnement"
-    t.date "date_debut"
-    t.date "date_fin"
-    t.time "heure_debut"
-    t.time "heure_fin"
     t.datetime "jalon_anomalie"
     t.boolean "dependance"
     t.boolean "equipement"
@@ -102,6 +98,8 @@ ActiveRecord::Schema.define(version: 2020_07_04_185831) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "categorie"
+    t.datetime "date_debut"
+    t.datetime "date_fin"
     t.index ["chantier_id"], name: "index_taches_on_chantier_id"
   end
 
@@ -147,8 +145,8 @@ ActiveRecord::Schema.define(version: 2020_07_04_185831) do
     t.integer "numero_tva"
     t.string "adresse"
     t.string "jours_travail"
-    t.string "heure_debut_travail"
-    t.string "heure_fin_travail"
+    t.time "heure_debut_travail"
+    t.time "heure_fin_travail"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -30,26 +30,33 @@
 <div class="chargew dflex">
   <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
   <%  @taches_totales_semaine.each do |tache|  %>
-  <p> <%= @duree_tache  %> heures </p>
+  <p> <%= @duree_tache %> heures </p>
   <% end %>
 
   <p> votre temps de tache cette semaine </p>
   <p> <%= @temps_taches_totale_semaine %> disponibles </p>
+  <p> chargew : <%= @charge_travail_pourcentage_semaine %> </p>
+  <p>travail semaine duree <%= @duree_travail_semaine %></p>
 
-  <div class="curseur">
-    <label for="range">
-      <input type="range" name="range" id="range" min="0" max="300" step="5" value="175"/>
-    </label>
-    <output for="range" class="output"></output>
+<div>
+  <div class="progress" style="min-width: 40px">
+    <div class="progress-bar" role="progressbar"
+      aria-valuenow="<%= @charge_travail_pourcentage_semaine %>"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      style="width: <%= @charge_travail_pourcentage_semaine %>%;"><%= @charge_travail_pourcentage_semaine %> %
+    </div>
   </div>
-  <div class="charge-w-option"></div>
 </div>
+
 <hr class="ligne-separate">
 <div class="ctnr-alertes">
   <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
   <div>
     <div class="card-alerte m-2">
-      <p>notification 1</p>
+      <% @taches_retard.each do |tache|  %>
+      <p> <%= tache.objet %> </p>
+      <% end %>
     </div>
   </div>
 </div>

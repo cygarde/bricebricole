@@ -24,6 +24,7 @@ gem 'redis', '~> 4.0'
 gem 'pg_search'
 gem 'acts-as-taggable-on'
 gem 'geocoder'
+gem 'bootstrap_progressbar'
 # Use Active Storage variant
 
 gem 'image_processing', '~> 1.2'
