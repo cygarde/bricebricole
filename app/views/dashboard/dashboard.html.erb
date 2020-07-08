@@ -27,19 +27,11 @@
     </div>
   </div>
 </div>
+
 <div class="chargew dflex">
   <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
-  <%  @taches_totales_semaine.each do |tache|  %>
-  <p> <%= @duree_tache %> heures </p>
-  <% end %>
-
-  <p> votre temps de tache cette semaine </p>
-  <p> <%= @temps_taches_totale_semaine %> disponibles </p>
-  <p> chargew : <%= @charge_travail_pourcentage_semaine %> </p>
-  <p>travail semaine duree <%= @duree_travail_semaine %></p>
-
 <div>
-  <div class="progress" style="min-width: 40px">
+  <div class="progress" style="min-width: 80px">
     <div class="progress-bar" role="progressbar"
       aria-valuenow="<%= @charge_travail_pourcentage_semaine %>"
       aria-valuemin="0"
@@ -60,6 +52,7 @@
     </div>
   </div>
 </div>
+<hr class="ligne-separate">
 <div class="ctnr-taches">
   <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
   <div>
