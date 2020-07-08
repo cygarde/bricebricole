@@ -27,6 +27,7 @@ class TachesController < ApplicationController
   end
 
   def edit
+    @chantier = Chantier.find(params[:chantier_id])
   end
 
   def update

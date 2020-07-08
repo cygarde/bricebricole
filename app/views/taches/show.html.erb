@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="rows"><div><h1>Taches <%= @tache.objet %></h1></div>
+  <div class="user d-flex justify-content-center">
+    <h3><%= @tache.objet %></h3>
+    <h3 class="ml-2"><%= @tache.objet %></h3>
+  </div>
+  <div class="tblx-progr-jour d-flex justify-space-between">
+    <div>
+      <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Informations", chantiers_path, class: "couleur-chantier" %></p>
+      <div class="d-flex">
+        <div class="card-information">
+          <div>
+            <p class="info"><%= @tache.objet %></p>
+            <p class="info"><%= @tache.description %></p>
+            <p class="info">Deb : <%= @tache.date_debut %></p>
+            <p class="info">Fin : <%= @tache.date_fin %></p>
+            <p class="info">Deb : <%= @tache.heure_debut %></p>
+            <p class="info">Fin : <%= @tache.heure_fin %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ctnr-progression">
+      <p class="titre-progression"><i class="fas fa-percentage p-1"></i>Progression</p>
+      <div>
+
+      </div>
+    </div>
+  </div>
+  <hr class="ligne-separate">
+
+  <hr class="ligne-separate">
+  <p class="titre-photo"><i class="fas fa-images p-1"></i>Photos</p>
+
+
+  <div>
+    <p class="btn-modif-chantier btn btn-info"> <%= link_to "Modifier", edit_chantier_tach_path(@tache) %> </p>
+    <p class="btn-modif-chantier btn btn-info"> <%= link_to "Retour", chantiers_path() %> </p>
+  </div>
+</div>
+</div>
