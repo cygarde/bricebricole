@@ -36,15 +36,15 @@
 </div>
 
 <div class="chargew dflex">
-    <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
-    <% @taches_totales_semaine.each do |tache|  %>
-      <p><%= @duree_tache %> heures</p>
-    <% end %>
+  <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
+  <% @taches_totales_semaine.each do |tache|  %>
+    <p><%= @duree_tache %> heures</p>
+  <% end %>
 
-    <p>votre temps de tache cette semaine</p>
-    <p><%= @temps_taches_totale_semaine %> disponibles</p>
-    <p>chargew : <%= @charge_travail_pourcentage_semaine %></p>
-    <p>travail semaine duree <%= @duree_travail_semaine %></p>
+  <p>votre temps de tache cette semaine</p>
+  <p><%= @temps_taches_totale_semaine %> disponibles</p>
+  <p>chargew : <%= @charge_travail_pourcentage_semaine %></p>
+  <p>travail semaine duree <%= @duree_travail_semaine %></p>
 
   <!-- Progress bar -->
   <div>
