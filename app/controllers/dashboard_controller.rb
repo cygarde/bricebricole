@@ -11,14 +11,17 @@ class DashboardController < ApplicationController
 
     #@tempsdispoartisan = @user.where(jours_travail:true)
     #@chargetravaildisp =
-    #methode charge de travail
+
+    # Charge de travail
     @from_date = DateTime.now.beginning_of_week
     @to_date = DateTime.now.end_of_week
     @taches_totales_semaine = []
     @user.chantiers.each do |chantier|
       chantier.taches.each do |tache|
-        if tache.date_debut >= @from_date && tache.date_debut <= @to_date
-          @taches_totales_semaine << tache
+        if tache.date_debut && tache.date_fin
+          if tache.date_debut >= @from_date && tache.date_debut <= @to_date
+            @taches_totales_semaine << tache
+          end
         end
       end
     end
@@ -28,21 +31,31 @@ class DashboardController < ApplicationController
       @temps_taches_totale_semaine += @duree_tache
       @taches_totales_semaine
     end
-    @duree_travail_jour = @user.heure_fin_travail - @user.heure_debut_travail
-    #@jours_travailles = @user.jours_travail.count
-    @jours_travailles = 5
-    @duree_travail_semaine = @jours_travailles * @duree_travail_jour
-    @charge_travail_pourcentage_semaine = ((@temps_taches_totale_semaine * 100) / @duree_travail_semaine).round
-    @charge_travail_pourcentage_semaine = 80
 
-    #methode tache en retard
+    # Si le user a bien une heure_debut_travail et une heure_fin_travail
+    if @user.heure_debut_travail && @user.heure_fin_travail
+      @duree_travail_jour = @user.heure_fin_travail - @user.heure_debut_travail
+      #@jours_travailles = @user.jours_travail.count
+      @jours_travailles = 5
+      @duree_travail_semaine = @jours_travailles * @duree_travail_jour
+    end
+
+    if @duree_travail_semaine
+      @charge_travail_pourcentage_semaine = ((@temps_taches_totale_semaine * 100) / @duree_travail_semaine).round
+      @charge_travail_pourcentage_semaine = 80
+    end
+
+    # Taches en retard
     @taches_retard = []
     @datenow = DateTime.now
     @user.chantiers.each do |chantier|
       chantier.taches.each do |tache|
-        if tache.date_fin < @datenow
-          @taches_retard << tache
-          @taches_retard
+        # Si la tache a bien une date_fin
+        if tache.date_fin
+          if tache.date_fin < @datenow
+            @taches_retard << tache
+            @taches_retard
+          end
         end
       end
     end
