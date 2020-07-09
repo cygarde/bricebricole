@@ -1,7 +1,6 @@
 <div class="container">
   <div class="rows"><div><h1>Bonjour <%= @user.prenom  %></h1></div>
 </div>
-
 <div class="tblx-dash-jour d-flex justify-space-between">
   <div>
     <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Tes chantiers", chantiers_path, class: "couleur-chantier" %></p>
@@ -26,7 +25,7 @@
         <div id="meteo">
           <div id="ville">
             <% if @user.adresse %>
-              <%= Geocoder.search(@user.adresse)[0].data["address"]["city"] %>
+            <%= Geocoder.search(@user.adresse)[0].data["address"]["city"] %>
             <% end %>
           </div>
         </div>
@@ -34,29 +33,9 @@
     </div>
   </div>
 </div>
-
+<!-- Progress bar -->
 <div class="chargew dflex">
   <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
-  <% @taches_totales_semaine.each do |tache|  %>
-    <p><%= @duree_tache %> heures</p>
-  <% end %>
-
-
-<hr class="ligne-separate">
-<div class="ctnr-alertes">
-  <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
-  <div class="d-flex">
-    <div class="card-alerte m-2">
-      <% @taches_retard.each do |tache|  %>
-      <p class="alerte-tache m-2"> <%= tache.objet %> </p>
-      <% end %>
-
-  <p>votre temps de tache cette semaine</p>
-  <p><%= @temps_taches_totale_semaine %> disponibles</p>
-  <p>chargew : <%= @charge_travail_pourcentage_semaine %></p>
-  <p>travail semaine duree <%= @duree_travail_semaine %></p>
-
-  <!-- Progress bar -->
   <div>
     <div class="progress" style="min-width: 40px">
       <div class="progress-bar" role="progressbar"
@@ -65,40 +44,36 @@
         aria-valuemax="100"
         style="width: <%= @charge_travail_pourcentage_semaine %>%;"><%= @charge_travail_pourcentage_semaine %> %
       </div>
-
     </div>
-    <div>
-     <button type="button" class="btn btn-warning btn-sm btn-block"><i class="sms fas fa-sms"></i></button>
-
-    </div>
-  </div>
-
-  <!-- Taches en retard -->
-  <hr class="ligne-separate">
-  <div class="ctnr-alertes">
-    <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
-    <div>
-      <div class="card-alerte m-2">
-        <% @taches_retard.each do |tache|  %>
-          <p><%= tache.objet %></p>
-        <% end %>
+    <!-- Taches en retard -->
+    <hr class="ligne-separate">
+    <div class="ctnr-alertes">
+      <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
+      <div>
+        <div class="card-alerte d-flex m-2">
+          <% @taches_retard.each do |tache|  %>
+          <p class="alerte-tache m-2"> <%= tache.objet %> </p>
+          <% end %>
+          <div>
+            <button type="button" class="btn btn-outline-warning btn-sm justify-content-center"><i class="sms fas fa-sms"></i></button>
+          </div>
+        </div>
+        <hr class="ligne-separate">
+        <!-- Taches du jour -->
+        <div>
+          <div class="ctnr-taches">
+            <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
+            <div>
+              <div>
+                <p class="desgn-tache">tâche 1</p>
+              </div>
+              <div>
+                <p class="desgn-tache">tâche 2</p>
+              </div>
+              <div>
+                <p class="desgn-tache">tâche 3</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Taches du jour -->
-  <div class="ctnr-taches">
-    <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
-    <div>
-      <div class="card-tache m-2">
-        <p>tâche 1</p>
-      </div>
-      <div class="card-tache m-2">
-        <p>tâche 2</p>
-      </div>
-      <div class="card-tache m-2">
-        <p>tâche 3</p>
-      </div>
-    </div>
-  </div>
-</div>
