@@ -14,6 +14,7 @@
         <div>
           <p class="chantier-venir"><%= @chantiersavenir %></p>
           <p class="desc-chantier-venir">en attente</p>
+          <% Nexmo.sms.send(from: '+33676032070', to: '+33676032070', text: 'Hello world') %>
         </div>
       </div>
     </div>
@@ -68,6 +69,9 @@
           <p><%= tache.objet %></p>
         <% end %>
       </div>
+    </div>
+    <div>
+      <button class="sms-button">Envoyer SMS</button>
     </div>
   </div>
 
