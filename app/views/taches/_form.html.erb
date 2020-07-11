@@ -1,20 +1,20 @@
 <%= simple_form_for [ @chantier, @tache ]  do |f| %>
-  <%= f.input :objet %>
-  <%= f.input :description %>
-  <%= f.input :note %>
-  <%= f.input :categorie %>
-  <%= f.input :priorite %>
-  <%= f.input :environnement %>
-  <div class="d-flex format-champ">
-    <%= f.datetime_field :date_debut%>
-    <div class="pl-2 format-champ">
-      <%= f.datetime_field :date_fin %>
+  <%= f.input :objet, :placeholder => 'Objet', :label => false %>
+  <%= f.input :description, :placeholder => 'Description', :label => false %>
+  <%= f.input :note, :placeholder => 'Note', :label => false %>
+  <%= f.input :categorie, :placeholder => 'Categorie', :label => false %>
+  <%= f.input :priorite, :placeholder => 'Priorite', :label => false %>
+  <%= f.input :environnement, :placeholder => 'Environnement', :label => false %>
+  <div class="d-flex">
+    <%= f.datetime_field :date_debut, class: "format-champ"%>
+    <div class="pl-2">
+      <%= f.datetime_field :date_fin, class: "format-champ format-champ-droite" %>
     </div>
   </div>
   <%= f.input :jalon_anomalie %>
   <%= f.input :dependance %>
   <%= f.input :equipement %>
-  <%= f.input :equipement_description %>
+  <%= f.input :equipement_description, :placeholder => 'Description équipement', :label => false %>
   <%= f.input :realisation %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm button-recherche", style: "width: 100%" %>
