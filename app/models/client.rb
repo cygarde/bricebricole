@@ -2,6 +2,7 @@ class Client < ApplicationRecord
   belongs_to :user
   has_many :chantiers
   has_many :commentaires, dependent: :destroy
+  validates :telephone_2, phone: true
 
   include PgSearch::Model
 
@@ -10,6 +11,4 @@ class Client < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
-
 end

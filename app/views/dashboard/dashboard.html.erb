@@ -33,6 +33,7 @@
     </div>
   </div>
 </div>
+
 <!-- Progress bar -->
 <div class="chargew dflex">
   <div>
@@ -57,7 +58,11 @@
           <div class="d-flex flew-row justify-content-between align-items-center m-2" style="background-color: white;">
           <p class="alerte-tache m-2 pl-2"> <%= tache.objet %> </p>
           <div>
-            <button type="button" class="btn  btn-sm justify-content-center"><i class="sms fas fa-sms"></i></button>
+            <button type="button" class="btn  btn-sm justify-content-center">
+              <%= link_to send_text_path do %>
+                <i class="sms fas fa-sms"></i>
+              <% end %>
+            </button>
           </div>
           </div>
           <% end %>
