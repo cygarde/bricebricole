@@ -37,10 +37,14 @@ before_action :set_chantier, only: [:show, :edit, :update]
       lat: chantier.latitude,
       lng: chantier.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { chantier: chantier })
-
     }
+  end
 
-
+  #pourcentage avancement chantier
+  @taches_terminees = @chantier.taches.where(realisation: true).count
+  @taches_nombre = @chantier.taches.count
+    if @chantier.taches != []  && @taches_terminees
+      @chantier_avancement = ((@taches_terminees).fdiv(@taches_nombre) * 100).round
   end
   end
 
@@ -57,6 +61,7 @@ before_action :set_chantier, only: [:show, :edit, :update]
       end
 #   end
   end
+
 
 private
 
