@@ -2,15 +2,22 @@
 
   <div class="mt-2 titre-page">Chantiers</div>
 
-<div><%= form_tag chantiers_path, method: :get do %>
-  <%= select_tag "statut",
-  options_for_select(@statut),
-  include_blank: 'Statut'
-  %>
-  <%= submit_tag "Rechercher", class: "btn btn-primary mb-1 btn-sm" %>
-  <% end %>
+  <div class="d-flex">
+    <div class="filtre">
+      <%= form_tag chantiers_path, method: :get do %>
+      <%= select_tag "statut",
+      options_for_select(@statut),
+      include_blank: 'Statut'
+      %>
+    </div>
+    <div>
+    <%= submit_tag "Rechercher", class: "btn btn-primary mb-1 ml-2 mt-1 btn-sm button-recherche" %>
+    </div>
+    <% end %>
+  </div>
 
-  <div class="row">
+
+  <div class="row mt-2">
     <div class="col-sm-9">
       <div class="card">
         <div class="card-body">
