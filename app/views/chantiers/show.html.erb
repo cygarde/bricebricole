@@ -22,8 +22,11 @@
       <p class="titre-progression"><i class="fas fa-percentage p-1"></i>Progression</p>
       <div>
         <div class="card-progression">
-          <p>75%</p>
-          <p><%= @chantier.avancement %></p>
+          <% if @chantier.taches != [] && @taches_terminees %>
+          <p><%= @chantier_avancement %> %</p>
+          <% else %>
+          <p>"0 %"</p>
+          <% end %>
         </div>
       </div>
     </div>

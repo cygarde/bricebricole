@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="rows"><div><h1>Bonjour <%= @user.prenom  %></h1></div>
+  <div class="rows"><div><h1 id="title-artisan" >Bonjour <%= @user.prenom  %></h1></div>
 </div>
 <div class="tblx-dash-jour d-flex justify-space-between">
-  <div>
+  <div style="background: white;">
     <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Tes chantiers", chantiers_path, class: "couleur-chantier" %></p>
     <div class="d-flex">
       <div class="card-chantiers">
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="ctnr-meteo">
+  <div class="ctnr-meteo" >
     <p class="titre-meteo"><i class="fas fa-cloud-sun p-1"></i>ta Météo</p>
     <div>
       <div class="card-meteo">
@@ -35,6 +35,7 @@
 </div>
 <!-- Progress bar -->
 <div class="chargew dflex">
+  <div>
   <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
   <div>
     <div class="progress" style="min-width: 40px">
@@ -45,18 +46,21 @@
         style="width: <%= @charge_travail_pourcentage_semaine %>%;"><%= @charge_travail_pourcentage_semaine %> %
       </div>
     </div>
+    </div>
     <!-- Taches en retard -->
     <hr class="ligne-separate">
     <div class="ctnr-alertes">
       <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
       <div>
-        <div class="card-alerte d-flex m-2">
+        <div class="card-alerte d-flex flex-column justify-content-between mt-2 mb-2 ">
           <% @taches_retard.each do |tache|  %>
-          <p class="alerte-tache m-2"> <%= tache.objet %> </p>
-          <% end %>
+          <div class="d-flex flew-row justify-content-between align-items-center m-2" style="background-color: white;">
+          <p class="alerte-tache m-2 pl-2"> <%= tache.objet %> </p>
           <div>
-            <button type="button" class="btn btn-outline-warning btn-sm justify-content-center"><i class="sms fas fa-sms"></i></button>
+            <button type="button" class="btn  btn-sm justify-content-center"><i class="sms fas fa-sms"></i></button>
           </div>
+          </div>
+          <% end %>
         </div>
         <hr class="ligne-separate">
         <!-- Taches du jour -->
@@ -66,13 +70,17 @@
             <div>
               <div>
                 <% @taches_jour.each do |tache|  %>
-                  <p class="desgn-tache m-2"> <%= tache.date_fin %> </p>
+                <div class="d-flex flex-column justify-content-between">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                  <p class="desgn-tache m-2"> <%= tache.objet %> </p>
                   <% if tache.date_fin < @datejournow %>
-                    <p><%= @tache_minutes_restantes = ((@datejournow.to_i - tache.date_fin.to_i.in_time_zone("+02:00")) / 60).round %></p>
+                  <p class="minutes-restantes"><%= @tache_minutes_restantes = ((@datejournow.to_i - tache.date_fin.to_i) / 60).round %></p>
                   <% else %>
-                    <p><%= @taches_minutes_depasse = ((tache.date_fin - @datejournow) / 60).round %></p>
+                    <p class="minutes-depassees"><%= @taches_minutes_depasse = ((tache.date_fin - @datejournow) / 60).round %>min</p>
                   <% end %>
+                  </div>
                 <% end %>
+                </div>
               </div>
             </div>
           </div>
