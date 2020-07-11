@@ -5,13 +5,18 @@
   <%= f.input :categorie %>
   <%= f.input :priorite %>
   <%= f.input :environnement %>
-  <%= f.datetime_field :date_debut%>
-  <%= f.datetime_field :date_fin %>
+  <div class="d-flex format-champ">
+    <%= f.datetime_field :date_debut%>
+    <div class="pl-2 format-champ">
+      <%= f.datetime_field :date_fin %>
+    </div>
+  </div>
   <%= f.input :jalon_anomalie %>
   <%= f.input :dependance %>
   <%= f.input :equipement %>
   <%= f.input :equipement_description %>
   <%= f.input :realisation %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Ajouter", class: "btn btn-success mt-2", style: "width: 100%"  %>
+  <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm button-recherche", style: "width: 100%" %>
 <% end %>
+
