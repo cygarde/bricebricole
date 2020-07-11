@@ -64,6 +64,17 @@
           <div class="ctnr-taches">
             <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
             <div>
+
+              <div>
+                <% @taches_jour.each do |tache|  %>
+                  <p class="desgn-tache m-2"> <%= tache.date_fin %> </p>
+                  <% if tache.date_fin < @datejournow %>
+                    <p><%= @tache_minutes_restantes = ((@datejournow.to_i - tache.date_fin.to_i.in_time_zone("+02:00")) / 60).round %></p>
+                  <% else %>
+                    <p><%= @taches_minutes_depasse = ((tache.date_fin - @datejournow) / 60).round %></p>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
