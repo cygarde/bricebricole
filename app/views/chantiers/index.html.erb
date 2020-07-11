@@ -1,5 +1,7 @@
-<h1> Listes des chantiers </h1>
 <div class="container">
+
+  <div class="mt-2 titre-page">Chantiers</div>
+
   <div><%= form_tag chantiers_path, method: :get do %>
     <%= select_tag "statut",
     options_for_select(@statut),
@@ -12,6 +14,7 @@
         <div class="card">
           <div class="card-body">
             <% @chantiers.each do |chantier|  %>
+
             <div class="card-header d-flex justify-content-between">
               <div class="d-block">
                 <p><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
