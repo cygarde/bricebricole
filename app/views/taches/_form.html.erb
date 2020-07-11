@@ -5,10 +5,10 @@
   <%= f.input :categorie %>
   <%= f.input :priorite %>
   <%= f.input :environnement %>
-  <div class="d-flex format-champ">
-    <%= f.datetime_field :date_debut%>
-    <div class="pl-2 format-champ">
-      <%= f.datetime_field :date_fin %>
+  <div class="d-flex">
+    <%= f.datetime_field :date_debut, class: "format-champ"%>
+    <div class="pl-2">
+      <%= f.datetime_field :date_fin, class: "format-champ format-champ-droite" %>
     </div>
   </div>
   <%= f.input :jalon_anomalie %>
