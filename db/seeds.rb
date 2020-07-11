@@ -21,17 +21,17 @@ user = User.new(email:"laura1@gmail.com", password:"123456", nom:"France", preno
 user.save
 
 
-client1 = Client.new(nom: "ALLON", prenom: "Levy", telephone_1: "0612345678", telephone_2: "0712345678", email: "pierredupond@gmail.com", adresse: "12 Rue Paradis, 13006 Marseille", categorie: "Entreprise", information: "joignable entre 9h et 18h", fidelite: "VIP", entreprise:"Maison France Confort")
+client1 = Client.new(nom: "ALLON", prenom: "Levy", telephone_1: "0612345678", telephone_2: "+33767450160", email: "pierredupond@gmail.com", adresse: "12 Rue Paradis, 13006 Marseille", categorie: "Entreprise", information: "joignable entre 9h et 18h", fidelite: "VIP", entreprise:"Maison France Confort")
 client1.user = user
 client1.save
 
 
-client2 = Client.new(nom: "BACARD", prenom: "Hugo", telephone_1: "0617283948", telephone_2: "0138495839", email: "hugobacard@gmail.com", adresse: "36 Rue Sainte, 13006 Marseille", categorie: "Entreprise", information: "joignable sur son portable", fidelite: "VIP", entreprise: "Bouygues")
+client2 = Client.new(nom: "BACARD", prenom: "Hugo", telephone_1: "0617283948", telephone_2: "+33767450160", email: "hugobacard@gmail.com", adresse: "36 Rue Sainte, 13006 Marseille", categorie: "Entreprise", information: "joignable sur son portable", fidelite: "VIP", entreprise: "Bouygues")
 client2.user = user
 client2.save
 
 
-client3 = Client.new(nom: "ANE", prenom: "Jean-Marc", telephone_1: "0617283948", telephone_2: "0138495839", email: "jeanmarcane@gmail.com", adresse: "38 avenue jean jugan, 13004 Marseille", categorie: "Entreprise", information: "Accés entrée principale", fidelite: "VIP", entreprise: "Mediane")
+client3 = Client.new(nom: "ANE", prenom: "Jean-Marc", telephone_1: "0617283948", telephone_2: "+33767450160", email: "jeanmarcane@gmail.com", adresse: "38 avenue jean jugan, 13004 Marseille", categorie: "Entreprise", information: "Accés entrée principale", fidelite: "VIP", entreprise: "Mediane")
 client3.user = user
 client3.save
 
