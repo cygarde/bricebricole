@@ -59,5 +59,24 @@ class DashboardController < ApplicationController
         end
       end
     end
+
+    #taches du jour
+    @taches_jour = []
+    @datejour = Date.today
+    @user.chantiers.each do |chantier|
+      chantier.taches.each do |tache|
+        if tache.date_debut
+          if tache.date_debut.to_date == @datejour
+            @taches_jour << tache
+            @taches_jour
+          end
+        end
+      end
+    end
+
+    #decompte tache
+    @taches_minutes_depasse = 0
+    @tache_minutes_restantes = 0
+    @datejournow = DateTime.now
   end
 end
