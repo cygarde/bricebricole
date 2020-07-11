@@ -26,6 +26,11 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def send_text
+    @client = current_user.clients.last
+    TwilioClient.new.send_text(@client, "Coucou depuis l'application Brice Bricole")
+  end
+
   def show
     @chantier = Chantier.new
     @chantiers = @client.chantiers

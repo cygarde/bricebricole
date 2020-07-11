@@ -14,7 +14,6 @@
         <div>
           <p class="chantier-venir"><%= @chantiersavenir %></p>
           <p class="desc-chantier-venir">en attente</p>
-          <% Nexmo.sms.send(from: '+33676032070', to: '+33676032070', text: 'Hello world') %>
         </div>
       </div>
     </div>
@@ -65,13 +64,19 @@
     <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
     <div>
       <div class="card-alerte m-2">
-        <% @taches_retard.each do |tache|  %>
-          <p><%= tache.objet %></p>
-        <% end %>
+        <div class="d-flex">
+          <div>
+            <% @taches_retard.each do |tache|  %>
+              <p><%= tache.objet %></p>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to send_text_path do %>
+            Envoyer un SMS
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-    <div>
-      <button class="sms-button">Envoyer SMS</button>
     </div>
   </div>
 
