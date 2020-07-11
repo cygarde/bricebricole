@@ -41,12 +41,10 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-#    respond_to do |format|
-      if @client.update(client_params)
-        redirect_to @client
-      else
-        render :edit
-#      end
+    if @client.update(client_params)
+      redirect_to @client
+    else
+      render :edit
     end
   end
 
@@ -55,7 +53,7 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
     redirect_to clients_path
   end
 
-private
+  private
 
   def set_client
     @client = Client.find(params[:id])

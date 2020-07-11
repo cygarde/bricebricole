@@ -59,7 +59,7 @@
           <p class="alerte-tache m-2 pl-2"> <%= tache.objet %> </p>
           <div>
             <button type="button" class="btn  btn-sm justify-content-center">
-              <%= link_to send_text_path do %>
+              <%= link_to send_text_path, remote: true do %>
                 <i class="sms fas fa-sms"></i>
               <% end %>
             </button>

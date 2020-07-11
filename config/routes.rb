@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   get '/dashboard', to:'dashboard#dashboard'
 
   get '/send-text', to:'clients#send_text'
-
 end
 
