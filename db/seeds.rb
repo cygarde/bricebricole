@@ -7,15 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-require "open-uri"
 puts "starting to seed"
 
-User.destroy_all
-Client.destroy_all
+
+
 Chantier.destroy_all
+Client.destroy_all
+User.destroy_all
+puts "creating users"
 
 
-user = User.create(email: "laura1@gmail.com", password: "123456", nom:"France", prenom:"laura", nom_societe:"bouygues", numero_siret:"1234567890", numero_tva:"1234567890", adresse: "18 avenue du petit bosquet 13012 Marseille", jours_travail: ["lundi", "mardi"], heure_debut_travail: "8h", heure_fin_travail: "18h" )
+user = User.new(email:"laura1@gmail.com", password:"123456", nom:"France", prenom:"Laura", nom_societe:"Bouygues", numero_siret: 1234567890, numero_tva: 1234567890, adresse: "18 avenue du petit bosquet 13012 Marseille", jours_travail: ["lundi", "mardi"], heure_debut_travail: "8h", heure_fin_travail: "18h" )
 user.save
 
 
@@ -35,32 +37,32 @@ client3.save
 
 
 
-chantier1 = Chantier.new(reference: "", nom:"Installation des cables électrique", description: "Installation des cables électrique dans une maison individuelle", statut:"en cours", priorite: 1 , date_debut: "01/07/2020", date_fin_estimee: "04/07/2020", date_fin: "", adresse: "5 rue de marseille 13100 Aix-en-Provence", montant_versement: "2000€", avancement: "20%")
+chantier1 = Chantier.new(reference: "", nom:"Installation des cables électrique", description: "Installation des cables électriques dans une maison individuelle", statut:"en cours", priorite: 1 , date_debut: "01/07/2020", date_fin_estimee: "04/07/2020", date_fin: "04/07/2020", adresse: "5 rue de marseille 13100 Aix-en-Provence", montant_versement: 2000 )
 chantier1.user = user
 chantier1.client = client1
 chantier1.save
 
-chantier2 = Chantier.new(reference: "", nom:"Remplacement du tableau électrique", description: "Remplacement du tableau electrique dans la piece 2 ", statut:"en cours", priorite: 1 , date_debut: "21/07/2020", date_fin_estimee: "31/07/2020", date_fin: "", adresse: "8 avenue jean moulinn 13127 Vitrolles", montant_versement: "1000€", avancement: "")
+chantier2 = Chantier.new(reference: "", nom:"Remplacement du tableau électrique", description: "Remplacement du tableau electriques dans la piece 2 ", statut:"en cours", priorite: 1 , date_debut: "21/07/2020", date_fin_estimee: "31/07/2020", date_fin: "31/07/2020", adresse: "8 avenue jean moulinn 13127 Vitrolles", montant_versement: 1000)
 chantier2.user = user
 chantier2.client = client2
 chantier2.save
 
-chantier3 = Chantier.new(reference: "", nom:"Raccordement electrique balneo", description: "Raccordement électrique de la balneo vers le tableau électrique", statut:"en cours", priorite: 2, date_debut: "10/07/2020", date_fin_estimee: "11/07/2020", date_fin: "", adresse: "183 avenue des chartreux 13004 marseille", montant_versement: "1500€", avancement: "")
+chantier3 = Chantier.new(reference: "", nom:"Raccordement electrique balneo", description: "Raccordement électrique de la balneo vers le tableau électrique", statut:"en cours", priorite: 2, date_debut: "10/07/2020", date_fin_estimee: "11/07/2020", date_fin: "11/07/2020", adresse: "183 avenue des chartreux 13004 marseille", montant_versement: 1500)
 chantier3.user = user
 chantier3.client = client3
 chantier3.save
 
 
 
-tache1 = Tache.new(objet: "Achat marchandise", description: "Achat cable 36mm 2 bobines de 20 métres, Achat gaine rouge électrique 50mm, 15 prises Legrand", note:"", categorie:"", priorite: 1, environnement: "interieur", date_debut:"01/07/2020", date_fin:"01/07/2020", heure_debut:"8hOO", heure_fin:"12h00", jalon_anomalie:"", dependance:"", equipement:"", equipement_description:"", realisation:"")
+tache1 = Tache.new(objet: "Achat marchandise", description: "Achat cable 36mm 2 bobines de 20 métres, Achat gaine rouge électrique 50mm, 15 prises Legrand", note:"", categorie:"", priorite: 1, environnement: "interieur", date_debut:"01/07/2020", date_fin:"01/07/2020",jalon_anomalie:"", dependance:"", equipement:"", equipement_description:"", realisation:"")
 tache1.chantier = chantier1
 tache1.save
 
-tache2 = Tache.new(objet: "Tirer les cables", description: "Tirer les cables dans les gaines ", note:"preparer les attentes",categorie:"", priorite: 1, environnement: "interieur", date_debut:"01/07/2020", date_fin:"03/07/2020", heure_debut:"14h00", heure_fin:"18h00", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
+tache2 = Tache.new(objet: "Tirer les cables", description: "Tirer les cables dans les gaines ", note:"preparer les attentes",categorie:"", priorite: 1, environnement: "interieur", date_debut:"01/07/2020", date_fin:"03/07/2020", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
 tache2.chantier = chantier1
 tache2.save
 
-tache3 = Tache.new(objet: "Installation des prises électrique", description: "Pose des prises électrique ", note:"pose de prise",categorie:"", priorite: 1, environnement: "interieur", date_debut:"04/07/2020", date_fin:"04/07/2020", heure_debut:"8h00", heure_fin:"12h00", jalon_anomalie:"", dependance:"installation des cables", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
+tache3 = Tache.new(objet: "Installation des prises électrique", description: "Pose des prises électrique ", note:"pose de prise",categorie:"", priorite: 1, environnement: "interieur", date_debut:"04/07/2020", date_fin:"04/07/2020", jalon_anomalie:"", dependance:"installation des cables", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
 tache3.chantier = chantier1
 tache3.save
 
