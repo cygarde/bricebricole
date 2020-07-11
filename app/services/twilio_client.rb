@@ -11,7 +11,7 @@ class TwilioClient
     client.api.account.messages.create(
       to: user.telephone_2,
       from: ENV['TWILIO_PHONE_NUMBER'],
-      body: "Bonjour Monsieur, je ne pourrai malheureusement pas terminer la tâche aujourd'hui."
+      body: message
     )
   end
 end
