@@ -1,9 +1,8 @@
 <div class="container">
-  <div class="rows"><div><h1>Bonjour <%= @user.prenom  %></h1></div>
+  <div class="rows"><div><h1 id="title-artisan" >Bonjour <%= @user.prenom  %></h1></div>
 </div>
-
 <div class="tblx-dash-jour d-flex justify-space-between">
-  <div>
+  <div style="background: white;">
     <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Tes chantiers", chantiers_path, class: "couleur-chantier" %></p>
     <div class="d-flex">
       <div class="card-chantiers">
@@ -18,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="ctnr-meteo">
+  <div class="ctnr-meteo" >
     <p class="titre-meteo"><i class="fas fa-cloud-sun p-1"></i>ta Météo</p>
     <div>
       <div class="card-meteo">
@@ -26,7 +25,7 @@
         <div id="meteo">
           <div id="ville">
             <% if @user.adresse %>
-              <%= Geocoder.search(@user.adresse)[0].data["address"]["city"] %>
+            <%= Geocoder.search(@user.adresse)[0].data["address"]["city"] %>
             <% end %>
           </div>
         </div>
@@ -35,18 +34,10 @@
   </div>
 </div>
 
+<!-- Progress bar -->
 <div class="chargew dflex">
+  <div>
   <p class="titre-chargew"><i class="fas fa-user-cog p-1"></i>ta charge de travail</p>
-  <% @taches_totales_semaine.each do |tache|  %>
-    <p><%= @duree_tache %> heures</p>
-  <% end %>
-
-  <p>votre temps de tache cette semaine</p>
-  <p><%= @temps_taches_totale_semaine %> disponibles</p>
-  <p>chargew : <%= @charge_travail_pourcentage_semaine %></p>
-  <p>travail semaine duree <%= @duree_travail_semaine %></p>
-
-  <!-- Progress bar -->
   <div>
     <div class="progress" style="min-width: 40px">
       <div class="progress-bar" role="progressbar"
@@ -56,43 +47,48 @@
         style="width: <%= @charge_travail_pourcentage_semaine %>%;"><%= @charge_travail_pourcentage_semaine %> %
       </div>
     </div>
-  </div>
-
-  <!-- Taches en retard -->
-  <hr class="ligne-separate">
-  <div class="ctnr-alertes">
-    <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
-    <div>
-      <div class="card-alerte m-2">
-        <div class="d-flex">
+    </div>
+    <!-- Taches en retard -->
+    <hr class="ligne-separate">
+    <div class="ctnr-alertes">
+      <p class="titre-alertes"><i class="fas fa-exclamation-triangle p-1"></i>tes alertes</p>
+      <div>
+        <div class="card-alerte d-flex flex-column justify-content-between mt-2 mb-2 ">
+          <% @taches_retard.each do |tache|  %>
+          <div class="d-flex flew-row justify-content-between align-items-center m-2" style="background-color: white;">
+          <p class="alerte-tache m-2 pl-2"> <%= tache.objet %> </p>
           <div>
-            <% @taches_retard.each do |tache|  %>
-              <p><%= tache.objet %></p>
-            <% end %>
+            <button type="button" class="btn  btn-sm justify-content-center">
+              <%= link_to send_text_path do %>
+                <i class="sms fas fa-sms"></i>
+              <% end %>
+            </button>
           </div>
-          <div>
-            <%= link_to send_text_path do %>
-            Envoyer un SMS
-            <% end %>
+          </div>
+          <% end %>
+        </div>
+        <hr class="ligne-separate">
+        <!-- Taches du jour -->
+        <div>
+          <div class="ctnr-taches">
+            <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
+            <div>
+
+              <div>
+                <% @taches_jour.each do |tache|  %>
+                <div class="d-flex flex-column justify-content-between">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                  <p class="desgn-tache m-2"> <%= tache.objet %> </p>
+                  <% if tache.date_fin < @datejournow %>
+                  <p class="minutes-restantes"><%= @tache_minutes_restantes = ((@datejournow.to_i - tache.date_fin.to_i) / 60).round %></p>
+                  <% else %>
+                    <p class="minutes-depassees"><%= @taches_minutes_depasse = ((tache.date_fin - @datejournow) / 60).round %>min</p>
+                  <% end %>
+                  </div>
+                <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Taches du jour -->
-  <div class="ctnr-taches">
-    <p class="titre-taches"><i class="fas fa-wrench p-1"></i>tes tâches du jour</p>
-    <div>
-      <div class="card-tache m-2">
-        <p>tâche 1</p>
-      </div>
-      <div class="card-tache m-2">
-        <p>tâche 2</p>
-      </div>
-      <div class="card-tache m-2">
-        <p>tâche 3</p>
-      </div>
-    </div>
-  </div>
-</div>

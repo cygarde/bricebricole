@@ -48,11 +48,14 @@
   font-size: 15px;
   padding-left: 5px;
   word-wrap: break-word;
+  width: 172px;
 }
 
 .ctnr-meteo {
-
+    background: white;
+    border-radius: 3px;
 }
+
 
 .cards {
   display: flex;
@@ -126,3 +129,8 @@
     max-width: 10px;
     height: auto;
   }
+
+.d-block p {
+  font-weight: bold;
+  padding-bottom: none;
+}
