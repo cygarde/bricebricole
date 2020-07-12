@@ -2,8 +2,8 @@ class DashboardController < ApplicationController
   def dashboard
     @user = current_user
     @chantiers = @user.chantiers.count
-    @chantiersencours = @user.chantiers.where(statut:'encours').count
-    @chantiersavenir = @user.chantiers.where(statut:'avenir').count
+    @chantiersencours = @user.chantiers.where(statut:'en cours').count
+    @chantiersavenir = @user.chantiers.where(statut:'En attente').count
     @meteodashboard = @user.adresse
     #@taches = Tache.all.where(user_id:@user.id)
     #@taches = @user.taches.count
