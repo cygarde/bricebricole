@@ -80,7 +80,7 @@
                 <div class="d-flex flex-row justify-content-between align-items-center">
                   <p class="desgn-tache m-2"> <%= tache.objet %> </p>
                   <% if tache.date_fin < @datejournow %>
-                  <p class="minutes-restantes"><%= @tache_minutes_restantes = ((@datejournow.to_i - tache.date_fin.to_i) / 60).round %></p>
+                  <p class="minutes-restantes"><%= @tache_minutes_restantes = ((@datejournow.to_i - tache.date_fin.to_i) / 60).round %>min</p>
                   <% else %>
                     <p class="minutes-depassees"><%= @taches_minutes_depasse = ((tache.date_fin - @datejournow) / 60).round %>min</p>
                   <% end %>
