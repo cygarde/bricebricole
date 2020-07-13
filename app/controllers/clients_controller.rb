@@ -26,6 +26,11 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def send_text
+    @client = current_user.clients.last
+    TwilioClient.new.send_text(@client, "Bonjour Monsieur, je ne pourrai malheureusement pas terminer la tâche aujourd'hui.")
+  end
+
   def show
     @chantier = Chantier.new
     @chantiers = @client.chantiers
@@ -36,12 +41,10 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-#    respond_to do |format|
-      if @client.update(client_params)
-        redirect_to @client
-      else
-        render :edit
-#      end
+    if @client.update(client_params)
+      redirect_to @client
+    else
+      render :edit
     end
   end
 
@@ -50,7 +53,7 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
     redirect_to clients_path
   end
 
-private
+  private
 
   def set_client
     @client = Client.find(params[:id])

@@ -8,6 +8,11 @@ h1 {
   padding-top: 10px;
 }
 
+#title-artisan {
+font-size: 30px;
+margin: 19px auto;
+}
+
 h2 {
   color: white;
 }
@@ -88,18 +93,51 @@ h2 {
 }
 
 .card-alerte {
-  background-color: white;
   padding: 0px;
 }
 
 .alerte-tache {
-  font-weight: bold;
   background-color: white;
-  padding: 0px;
+  font-weight: bold;
+  padding: 10px;
   color: #cd5e15;
 }
 
 .desgn-tache {
   color: #cd5e15;
+  padding: 15px !important;
+}
+
+
+.minutes-depassees {
+  color: #cd5e15;
+  margin: 0;
+  font-weight: bolder;
+  padding: 15px;
+  background-color: white;
+}
+
+.minutes-restantes {
+  color: #cd5e15;
+  margin: 0;
+  font-weight: bolder;
+  padding: 15px;
+  background-color: white;
+
+
+
+}
+
+
+.chantier-venir, .chantier-cours {
+  font-size: 55px;
+}
+
+.titre-alertes, .titre-taches {
+  font-weight: bolder;
+}
+
+body {
+  background-color: rgba(240,240,240,1);
 }
 

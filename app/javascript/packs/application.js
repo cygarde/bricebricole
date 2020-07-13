@@ -19,11 +19,7 @@ require("channels")
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
-
-import { initMapbox } from '../plugins/init_mapbox';
-
-
+import flatpickr from "../plugins/flatpickr";
 
 
 // Internal imports, e.g:
@@ -31,10 +27,10 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 import { meteo } from "../components/meteo";
 
 import { loadDynamicBannerText } from "../components/banner";
-import flatpickr from "../plugins/flatpickr";
+import { initMapbox } from '../plugins/init_mapbox';
+
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
   initAutocomplete();
   meteo();
   loadDynamicBannerText();

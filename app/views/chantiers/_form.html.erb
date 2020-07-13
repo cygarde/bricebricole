@@ -1,4 +1,4 @@
-<%= simple_form_for [ @chantier ]  do |f| %>
+<%= simple_form_for [ @chantier ] do |f| %>
   <div class="form-show col-sm-9 mt-4 pt-4">
     <div class="row">
       <div class="col-sm-9 ">
@@ -18,12 +18,10 @@
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         </div>
         <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm", style: "width: 100%"  %>
-        <% end %>
       </div>
     </div>
   </div>
-
-
+<% end %>
 
 
 

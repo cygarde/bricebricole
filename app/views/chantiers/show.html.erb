@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="rows"><div><h1>Chantier <%= @chantier.reference %></h1></div>
+  <div class="rows"><div class="titre-page"><%= @chantier.reference %></div>
   <div class="user d-flex justify-content-center">
     <h3><%= @chantier.client.prenom %></h3>
     <h3 class="ml-2"><%= @chantier.client.nom %></h3>
@@ -22,8 +22,11 @@
       <p class="titre-progression"><i class="fas fa-percentage p-1"></i>Progression</p>
       <div>
         <div class="card-progression">
-          <p>75%</p>
-          <p><%= @chantier.avancement %></p>
+          <% if @chantier.taches != [] && @taches_terminees %>
+          <p><%= @chantier_avancement %> %</p>
+          <% else %>
+          <p>"0 %"</p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -59,8 +62,8 @@
 
   </div>
   <div>
-  <p class="btn-modif-chantier btn btn-info"> <%= link_to "Modifier", edit_chantier_path() %> </p>
-  <p class="btn-modif-chantier btn btn-info"> <%= link_to "Retour", chantiers_path() %> </p>
+  <p class="btn mb-1 btn-sm"> <%= link_to "Modifier", edit_chantier_path() %></p>
+  <p class="btn mb-1 btn-sm"> <%= link_to "Retour", chantiers_path() %> </p>
 </div>
 </div>
 </div>
