@@ -1,55 +1,67 @@
 <div class="container">
-  <div class="rows"><div class="titre-page"><%= @chantier.reference %></div>
+  <div class="rows"><div class="titre-page d-flex justify-content-center"><%= @chantier.reference %></div>
   <div class="user d-flex justify-content-center">
     <h3><%= @chantier.client.prenom %></h3>
     <h3 class="ml-2"><%= @chantier.client.nom %></h3>
   </div>
-  <div class="tblx-progr-jour d-flex justify-space-between">
-    <div>
-      <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Informations", chantiers_path, class: "couleur-chantier" %></p>
-      <div class="d-flex">
-        <div class="card-information">
-          <div>
-            <p class="info"><%= @chantier.nom %></p>
-            <p class="info"><%= @chantier.description %></p>
-            <p class="info"><%= @chantier.date_debut %></p>
-            <p class="info"><%= @chantier.date_fin_estimee %></p>
+  <div>
+    <div class="tblx-progr-jour d-flex justify-space-between">
+      <div>
+        <p class="titre-chantier pb-3"><i class="fas fa-tools p-1"></i><%= link_to "Description", chantiers_path, class: "couleur-chantier" %></p>
+        <div class="d-flex">
+          <div class="card-information">
+            <div class="couleur-bleu">
+              <p class="info"><%= @chantier.nom %></p>
+              <p class="info"><%= @chantier.description %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ctnr-progression">
+        <p class="titre-progression"><i class="fas fa-percentage p-1"></i>Progression</p>
+        <div>
+          <div class="card-progression">
+            <% if @chantier.taches != [] && @taches_terminees %>
+            <p><%= @chantier_avancement %>%</p>
+            <% else %>
+            <p>0 %</p>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-    <div class="ctnr-progression">
-      <p class="titre-progression"><i class="fas fa-percentage p-1"></i>Progression</p>
-      <div>
-        <div class="card-progression">
-          <% if @chantier.taches != [] && @taches_terminees %>
-          <p><%= @chantier_avancement %> %</p>
-          <% else %>
-          <p>"0 %"</p>
-          <% end %>
-        </div>
-      </div>
+    <hr class="ligne-separate">
+    <div class="d-flex justify-content-between justify-items-center">
+      <p class="couleur-bleu gras"><i class="far fa-calendar-alt pr-2 pt-2 gras"></i><%= @chantier.date_debut %></p>
+      <i class="fas fa-wrench pt-2 gras" style="color:#cd5e15"></i>
+      <p class="couleur-bleu gras"><i class="far fa-calendar-alt pr-2 pt-2 gras"></i><%= @chantier.date_fin_estimee %></p>
     </div>
   </div>
   <hr class="ligne-separate">
   <div class="tache">
-    <p class="titre-tache"><i class="fas fa-tasks p-1"></i>liste des tâches</p>
+    <p class="titre-tache pb-3"><i class="fas fa-thumbtack pr-1"></i>Liste des tâches</p>
     <% if @chantier.taches != [] %>
     <% @chantier.taches.each do |tache| %>
     <p class="desgn-tache"><%= tache.objet %> - <%= tache.description %></p>
     <% end %>
     <% end %>
-    <%= link_to new_chantier_tach_path(@chantier) do %>
-    <button type="button" class="btn-tache btn btn-info">Ajout tâche</button>
-    <% end %>
+    <div class="d-flex justify-content-center">
+      <%= link_to new_chantier_tach_path(@chantier) do %>
+      <button type="button" class="btn-tache btn btn-primary">Ajout tâche</button>
+      <% end %>
+    </div>
   </div>
   <hr class="ligne-separate">
-  <p class="titre-photo"><i class="fas fa-images p-1"></i>Photos</p>
+  <p class="titre-photo pb-3"><i class="fas fa-images p-1"></i>Photos</p>
   <div>
     <% if @chantier.photos != [] %>
     <% @chantier.photos.each do |photo| %>
     <p class="ctn-photo"><%= cl_image_tag photo.key, height: 300, width: 340, crop: :fill %></p>
     <% end %>
+    <% end %>
+    <%= simple_form_for [ @chantier ] do |f| %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm", style: "width: 100%"  %>
     <% end %>
   </div>
   <div>
@@ -59,11 +71,11 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"
       data-markers = "<%= @markers.to_json %>"
     > </div>
-
   </div>
-  <div>
-  <p class="btn mb-1 btn-sm"> <%= link_to "Modifier", edit_chantier_path() %></p>
-  <p class="btn mb-1 btn-sm"> <%= link_to "Retour", chantiers_path() %> </p>
-</div>
-</div>
+    <div class="d-flex justify-content-center">
+      <%= link_to  edit_chantier_path() do %>
+      <button type="button" class="btn-tache btn btn-primary">Modifier le chantier</button>
+      <% end %>
+    </div>
+
 </div>
