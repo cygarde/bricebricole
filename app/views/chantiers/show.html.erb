@@ -42,7 +42,7 @@
     <p class="titre-tache pb-3"><i class="fas fa-thumbtack pr-1"></i>Liste des tâches</p>
     <% if @chantier.taches != [] %>
     <% @chantier.taches.each do |tache| %>
-    <p class="desgn-tache"><%= tache.objet %> - <%= tache.description %></p>
+    <p class="desgn-tache couleur-verte"><%= tache.objet %> > <strong class="couleur-bleu"> <%= tache.description %> <strong> </p>
     <% end %>
     <% end %>
     <div class="d-flex justify-content-center">
