@@ -9,7 +9,7 @@ class CommentairesController < ApplicationController
     @client = Client.find(params[:client_id])
     @commentaire.client = @client
     if @commentaire.save
-      redirect_to client_path(@client)
+      redirect_to new_client_commentaire_path
     end
   end
 
