@@ -1,23 +1,24 @@
-<div class="container">
-
-  <h4 class="titre-page">Ajouter une note</h4>
-
-  <%= simple_form_for [ @client, @commentaire ] do |f| %>
+<div class="container pt-3">
+  <h4 class="titre-page-tache-show">Nouvelle note</h4>
+  <div class="pt-3">
+    <%= simple_form_for [ @client, @commentaire ] do |f| %>
     <%= f.input :content, :placeholder => 'Notes sur le client', :label => false %>
-    <%= f.submit "Ajouter", class: "btn btn-primary mb-1 btn-sm" %>
-  <% end %>
-
-    <div class="card-header mt-3 note">Notes</div>
-
-     <div class="d-flex">
-
-      <ul class="mt-3 col-sm-9">
+    <div class="d-flex justify-content-center">
+      <%= f.submit "Ajouter", class: "btn btn-primary mb-1 btn-sm" %>
+      <% end %>
+      <div class="d-flex justify-content-center pl-4">
+        <%= link_to  client_path(@client) do %>
+        <button type="button" class="tn btn-primary mb-1 btn-sm">Retour</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-header mt-3 note ">Notes</div>
+    <div class="d-flex justify-content-center">
+      <ul class="mt-3 col-sm-12">
         <% @client.commentaires.each do |commentaire| %>
-          <li class="list-group-item"><%= commentaire.content %></li>
+        <li class="list-group-item mt-2 couleur-bleu"> <i class="fas fa-info-circle pr-2 couleur-bleu"></i><%= commentaire.content %></li>
         <% end %>
       </ul>
     </div>
   </div>
-      <%= link_to 'Retour', client_path(@client), class: "button-retour fixed-bottom ml-2" %>
 </div>
-
