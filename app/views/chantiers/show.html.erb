@@ -2,7 +2,7 @@
   <div class="rows"><div class="titre-page d-flex justify-content-center"><%= @chantier.reference %></div>
   <div class="user d-flex justify-content-center">
     <h3><%= @chantier.client.prenom %></h3>
-    <h3 class="ml-2"><%= @chantier.client.nom %></h3>
+    <h3 class="ml-2 mb-4"><%= @chantier.client.nom %></h3>
   </div>
   <div>
     <div class="tblx-progr-jour d-flex justify-space-between">
@@ -60,7 +60,7 @@
     <% end %>
     <% end %>
     <%= simple_form_for [ @chantier ] do |f| %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, :label => false %>
     <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm", style: "width: 100%"  %>
     <% end %>
   </div>
@@ -74,7 +74,7 @@
   </div>
     <div class="d-flex justify-content-center">
       <%= link_to  edit_chantier_path() do %>
-      <button type="button" class="btn-tache btn btn-primary">Modifier le chantier</button>
+      <button type="button" class="btn-tache btn btn-primary mb-2">Modifier le chantier</button>
       <% end %>
     </div>
 
