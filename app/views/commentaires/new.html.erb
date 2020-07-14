@@ -4,7 +4,7 @@
 
   <%= simple_form_for [ @client, @commentaire ] do |f| %>
     <%= f.input :content, :placeholder => 'Notes sur le client', :label => false %>
-    <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm" %>
+    <%= f.submit "Ajouter", class: "btn btn-primary mb-1 btn-sm" %>
   <% end %>
 
     <div class="card-header mt-3 note">Notes</div>
