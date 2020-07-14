@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="rows"><div class="titre-page"><%= @chantier.reference %></div>
+  <div class="rows"><div class="titre-page d-flex justify-content-center"><%= @chantier.reference %></div>
   <div class="user d-flex justify-content-center">
     <h3><%= @chantier.client.prenom %></h3>
     <h3 class="ml-2"><%= @chantier.client.nom %></h3>
   </div>
   <div class="tblx-progr-jour d-flex justify-space-between">
     <div>
-      <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Informations", chantiers_path, class: "couleur-chantier" %></p>
+      <p class="titre-chantier"><i class="fas fa-tools p-1"></i><%= link_to "Description", chantiers_path, class: "couleur-chantier" %></p>
       <div class="d-flex">
         <div class="card-information">
           <div>
@@ -25,7 +25,7 @@
           <% if @chantier.taches != [] && @taches_terminees %>
           <p><%= @chantier_avancement %> %</p>
           <% else %>
-          <p>"0 %"</p>
+          <p>0 %</p>
           <% end %>
         </div>
       </div>
@@ -39,9 +39,11 @@
     <p class="desgn-tache"><%= tache.objet %> - <%= tache.description %></p>
     <% end %>
     <% end %>
+    <div class="d-flex justify-content-center">
     <%= link_to new_chantier_tach_path(@chantier) do %>
-    <button type="button" class="btn-tache btn btn-info">Ajout tâche</button>
+    <button type="button" class="btn-tache btn btn-primary">Ajout tâche</button>
     <% end %>
+    </div>
   </div>
   <hr class="ligne-separate">
   <p class="titre-photo"><i class="fas fa-images p-1"></i>Photos</p>
