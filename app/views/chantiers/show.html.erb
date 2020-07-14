@@ -61,7 +61,9 @@
     <% end %>
     <%= simple_form_for [ @chantier ] do |f| %>
     <%= f.input :photos, as: :file, input_html: { multiple: true }, :label => false %>
-    <%= f.submit "Valider", class: "btn btn-primary mb-1 btn-sm", style: "width: 100%"  %>
+    <div class="d-flex justify-content-center">
+    <%= f.submit "Ajout photo", class: "btn button-color mb-1"  %>
+    </div>
     <% end %>
   </div>
   <div>
