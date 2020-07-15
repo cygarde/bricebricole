@@ -32,7 +32,7 @@
     </div>
     <hr class="ligne-separate">
     <div class="d-flex justify-content-between justify-items-center">
-      <p class="couleur-bleu gras"><i class="far fa-calendar-alt pr-2 pt-2 gras"></i><%= @chantier.date_debut %></p>
+      <p class="datesize couleur-bleu gras"><i class="far fa-calendar-alt pr-2 pt-2 gras"></i><%= @chantier.date_debut %></p>
       <i class="fas fa-wrench pt-2 gras" style="color:#cd5e15"></i>
       <p class="couleur-bleu gras"><i class="far fa-calendar-alt pr-2 pt-2 gras"></i><%= @chantier.date_fin_estimee %></p>
     </div>
@@ -42,7 +42,7 @@
     <p class="titre-tache pb-3"><i class="fas fa-thumbtack pr-1"></i>Liste des tâches</p>
     <% if @chantier.taches != [] %>
     <% @chantier.taches.each do |tache| %>
-    <p class="desgn-tache couleur-verte"><%= tache.objet %> > <strong class="couleur-bleu"> <%= tache.description %> <strong> </p>
+    <p class="desgn-tache couleur-verte"><i class="fas fa-eye pr-1"></i><%= tache.objet %> > <strong class="couleur-bleu"> <%= tache.description %> <strong> </p>
     <% end %>
     <% end %>
     <div class="d-flex justify-content-center">
@@ -68,7 +68,7 @@
   </div>
   <div>
     <hr class="ligne-separate">
-    <p class="adresse"><i class="fas fa-map-marked-alt p-1"></i>Se situe</p>
+    <p class="adresse"><i class="fas fa-map-marked-alt p-1"></i>Localisation</p>
     <div id="map" style="width: 100%; height: 600px;"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"
       data-markers = "<%= @markers.to_json %>"
@@ -79,5 +79,4 @@
       <button type="button" class="btn-tache btn btn-primary mb-2">Modifier le chantier</button>
       <% end %>
     </div>
-
 </div>
