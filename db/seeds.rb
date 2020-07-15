@@ -42,16 +42,20 @@ chantier3.save
 
 puts "Creating taches"
 
-tache1 = Tache.new(objet: "Preparation", description: "montage tableau Legrand", note:"Prendre un 4 rangée", categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 07:22:00 UTC +00:00", date_fin:"Sat, 18 Jul 2020 10:22:00 UTC +00:00",jalon_anomalie:"", dependance:"", equipement:"", equipement_description:"", realisation:"true")
+tache1 = Tache.new(objet: "Preparation", description: "Montage tableau Legrand", note:"prévoir un 4 rangée", categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 07:22:00 UTC +00:00", date_fin:"Fri, 17 Jul 2020 20:22:00 UTC +00:00",jalon_anomalie:"", dependance:"", equipement:"", equipement_description:"", realisation:true)
 tache1.chantier = chantier1
 tache1.save
 
-tache2 = Tache.new(objet: "Tirer les cables", description: "Tirer les cables dans les gaines ", note:"préparer les attentes",categorie:"", priorite: 1, environnement: "", date_debut:"17/07/2020", date_fin:"18/07/2020", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
+tache2 = Tache.new(objet: "Tirer les cables", description: "Prévoir câbles 3G5 ", note:"préparer les attentes",categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 08:22:00 UTC +00:00", date_fin:"Fri, 17 Jul 2020 21:50:00 UTC +00:00", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
 tache2.chantier = chantier1
 tache2.save
 
-tache3 = Tache.new(objet: "Installation prises électriques", description: "Pose des prises électriques ", note:"modele celian",categorie:"", priorite: 1, environnement: "", date_debut:"14/07/2020", date_fin:"12/07/2020", jalon_anomalie:"", dependance:"installation des cables", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
-tache3.chantier = chantier1
-tache3.save
+tache2 = Tache.new(objet: "Raccorder radiateur", description: "Fil pilote à raccoder : gestion heures creuses", note:"vérifier les attentes",categorie:"", priorite: 1, environnement: "", date_debut:"17/07/2020", date_fin:"Fri, 17 Jul 2020 23:22:00 UTC +00:00", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Penser à l'avertiseur + guide", realisation:"")
+tache2.chantier = chantier2
+tache2.save
+
+tache4 = Tache.new(objet: "Installation prises électriques", description: "Pose des prises électriques ", note:"modele celian",categorie:"", priorite: 1, environnement: "", date_debut:"14/07/2020", date_fin:"12/07/2020", jalon_anomalie:"", dependance:"installation des cables", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
+tache4.chantier = chantier3
+tache4.save
 
 puts "Finished seed"
