@@ -25,12 +25,12 @@ client3.save
 
 puts "Creating chantiers"
 
-chantier1 = Chantier.new(reference: "ref:FD001", nom:"Réno élec", description: "Changement tableau électrique", statut:"en cours", priorite: 1 , date_debut: "12/07/2020", date_fin_estimee: "25/07/2020", date_fin:"", adresse: "110 boulevard Baille, 13005 Marseille", montant_versement: 2000 )
+chantier1 = Chantier.new(reference: "ref:FD001", nom:"Réno élec", description: "Changement tableau électrique", statut:"En cours", priorite: 1 , date_debut: "12/07/2020", date_fin_estimee: "25/07/2020", date_fin:"", adresse: "110 boulevard Baille, 13005 Marseille", montant_versement: 2000 )
 chantier1.user = user
 chantier1.client = client1
 chantier1.save
 
-chantier2 = Chantier.new(reference: "ref:BH001", nom:"Rplct chauffage", description: "Mise en place radiateur à inertie douce", statut:"en cours", priorite: 1 , date_debut: "11/07/2020", date_fin_estimee: "22/07/2020", date_fin:"", adresse: "36 Rue Sainte, 13006 Marseille", montant_versement: 1000)
+chantier2 = Chantier.new(reference: "ref:BH001", nom:"Rplct chauffage", description: "Mise en place radiateur à inertie douce", statut:"En cours", priorite: 1 , date_debut: "11/07/2020", date_fin_estimee: "22/07/2020", date_fin:"", adresse: "36 Rue Sainte, 13006 Marseille", montant_versement: 1000)
 chantier2.user = user
 chantier2.client = client2
 chantier2.save
@@ -42,11 +42,11 @@ chantier3.save
 
 puts "Creating taches"
 
-tache1 = Tache.new(objet: "Preparation", description: "Montage tableau Legrand", note:"prévoir un 4 rangée", categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 07:22:00 UTC +00:00", date_fin:"Fri, 17 Jul 2020 20:22:00 UTC +00:00",jalon_anomalie:"", dependance:"", equipement:"", equipement_description:"", realisation:true)
+tache1 = Tache.new(objet: "Preparation", description: "Montage tableau Legrand", note:"prévoir un 4 rangée", categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 07:22:00 UTC +00:00", date_fin:"Fri, 17 Jul 2020 22:22:00 UTC +00:00",jalon_anomalie:"", dependance:"", equipement:"", equipement_description:"", realisation:true)
 tache1.chantier = chantier1
 tache1.save
 
-tache2 = Tache.new(objet: "Tirer les cables", description: "Prévoir câbles 3G5 ", note:"préparer les attentes",categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 08:22:00 UTC +00:00", date_fin:"Fri, 17 Jul 2020 21:50:00 UTC +00:00", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
+tache2 = Tache.new(objet: "Tirer les cables", description: "Prévoir câbles 3G5 ", note:"préparer les attentes",categorie:"", priorite: 1, environnement: "", date_debut:"Fri, 17 Jul 2020 08:22:00 UTC +00:00", date_fin:"Fri, 17 Jul 2020 23:50:00 UTC +00:00", jalon_anomalie:"", dependance:"Achat marchandise", equipement: true, equipement_description:"Chalimeau, boule chauffante, guide", realisation:"")
 tache2.chantier = chantier1
 tache2.save
 
