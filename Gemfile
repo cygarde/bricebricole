@@ -27,7 +27,7 @@ gem 'geocoder'
 gem 'bootstrap_progressbar'
 # Use Active Storage variant
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 # gem 'pg_search', '~> 2.3.0'
 
 # Reduces boot times through caching; required in config/boot.rb
